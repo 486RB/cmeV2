@@ -1,0 +1,588 @@
+/* ===== 重置与基础 ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background-color: #f7f8fa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== 容器 ===== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 32px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 32px 24px 40px;
+  }
+}
+
+/* ===== 标题区 ===== */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .header-title {
+    font-size: 28px;
+  }
+}
+
+.header-subtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+@media (min-width: 640px) {
+  .header-subtitle {
+    font-size: 15px;
+  }
+}
+
+/* ===== 使用说明 ===== */
+.notice {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+}
+
+.notice p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #1e3a5f;
+}
+
+/* ===== 搜索框 ===== */
+.search-section {
+  margin-bottom: 20px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+  color: #9ca3af;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.search-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px 0 42px;
+  font-size: 15px;
+  color: #111827;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* ===== 分类按钮 ===== */
+.category-section {
+  margin-bottom: 24px;
+}
+
+.category-label {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-btn {
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.category-btn:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.category-btn:active {
+  transform: scale(0.97);
+}
+
+.category-btn.active {
+  color: #fff;
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.category-clear {
+  display: inline-flex;
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.category-clear:hover {
+  color: #2563eb;
+}
+
+/* ===== 搜索结果区 ===== */
+.results-section {
+  margin-bottom: 24px;
+}
+
+/* 空状态 */
+.empty-state {
+  padding: 48px 16px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.empty-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  color: #d1d5db;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* 结果头部 */
+.results-header {
+  margin-bottom: 16px;
+}
+
+.results-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.results-count {
+  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+/* 答案卡片 */
+.answer-card {
+  padding: 16px;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.answer-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.answer-card + .answer-card {
+  margin-top: 12px;
+}
+
+.answer-card.recommended {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+/* 问题标题（可点击展开） */
+.answer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 0;
+}
+
+.answer-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.badge {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1d4ed8;
+  background-color: #dbeafe;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.answer-toggle {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: #9ca3af;
+  transition: transform 0.2s;
+}
+
+.answer-toggle.expanded {
+  transform: rotate(180deg);
+}
+
+/* 答案内容 */
+.answer-body {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #f3f4f6;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.answer-content {
+  padding: 12px;
+  background-color: #f9fafb;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.answer-content p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #374151;
+  white-space: pre-wrap;
+}
+
+.answer-meta {
+  margin-bottom: 14px;
+  font-size: 13px;
+  line-height: 2;
+  color: #6b7280;
+}
+
+.answer-meta span.label {
+  font-weight: 500;
+  color: #374151;
+}
+
+.answer-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.answer-hint {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #9ca3af;
+  flex: 1;
+}
+
+/* 复制按钮 */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background-color: #f9fafb;
+}
+
+.copy-btn:active {
+  transform: scale(0.97);
+}
+
+.copy-btn.copied {
+  color: #16a34a;
+  border-color: #86efac;
+  background-color: #f0fdf4;
+}
+
+/* 相关问题标题 */
+.related-title {
+  margin: 20px 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* 未找到结果 */
+.no-results {
+  padding: 40px 16px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.no-results p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ===== 问题反馈入口 ===== */
+.feedback-section {
+  margin-bottom: 28px;
+  padding: 24px 16px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.feedback-text {
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.feedback-btn:hover {
+  background-color: #f9fafb;
+}
+
+.feedback-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== 免责声明 ===== */
+.footer {
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.footer-disclaimer {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #9ca3af;
+}
+
+.footer-date {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #d1d5db;
+}
+
+/* ===== 弹窗 ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 420px;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-title {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.modal-desc {
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #6b7280;
+}
+
+.modal-body {
+  padding: 14px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.modal-subtitle {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.modal-list {
+  list-style: disc inside;
+  font-size: 13px;
+  line-height: 2;
+  color: #6b7280;
+}
+
+.modal-tip {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #9ca3af;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close {
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-close:hover {
+  background-color: #1d4ed8;
+}
+
+/* ===== 自定义滚动条 ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}

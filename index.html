@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>继续医学教育常见问题查询</title>
+  <meta name="description" content="提供继续医学教育项目申报、举办管理、学分管理、远程教育、资料归档、整改监管等常见问题查询服务">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 标题区 -->
+    <header class="header">
+      <h1 class="header-title">继续医学教育常见问题查询</h1>
+      <p class="header-subtitle">
+        提供项目申报、举办管理、学分管理、远程教育、资料归档、整改监管等常见问题查询服务
+      </p>
+    </header>
+
+    <!-- 使用说明 -->
+    <section class="notice">
+      <p>
+        本页面用于提供继续医学教育相关常见问题查询服务，内容供业务办理参考。具体要求以正式文件、系统通知及主管部门解释为准。
+      </p>
+    </section>
+
+    <!-- 搜索框 -->
+    <section class="search-section">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="请输入关键词，例如：学分、举办前登记、项目变更、资料归档"
+          autocomplete="off"
+        >
+      </div>
+    </section>
+
+    <!-- 分类按钮 -->
+    <section class="category-section">
+      <p class="category-label">按分类浏览：</p>
+      <div class="category-buttons" id="categoryButtons">
+        <button class="category-btn" data-category="项目申报">项目申报</button>
+        <button class="category-btn" data-category="项目举办管理">项目举办管理</button>
+        <button class="category-btn" data-category="学分管理">学分管理</button>
+        <button class="category-btn" data-category="远程继续医学教育">远程继续医学教育</button>
+        <button class="category-btn" data-category="资料归档">资料归档</button>
+        <button class="category-btn" data-category="整改监管/飞行检查">整改监管/飞行检查</button>
+        <button class="category-btn" data-category="系统操作">系统操作</button>
+        <button class="category-btn" data-category="政策依据">政策依据</button>
+      </div>
+      <button class="category-clear" id="clearCategory" style="display:none;">清除筛选</button>
+    </section>
+
+    <!-- 搜索结果区 -->
+    <section class="results-section" id="resultsSection">
+      <div class="empty-state" id="emptyState">
+        <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <p>请输入关键词或选择分类开始查询</p>
+      </div>
+
+      <div class="results-content" id="resultsContent" style="display:none;">
+        <div class="results-header">
+          <h2 class="results-title">
+            <span id="resultsLabel">推荐答案</span>
+            <span class="results-count" id="resultsCount"></span>
+          </h2>
+        </div>
+        <div id="recommendedAnswer"></div>
+        <div id="relatedQuestions"></div>
+      </div>
+
+      <div class="no-results" id="noResults" style="display:none;">
+        <p>未找到相关问题。您可以通过"问题反馈"提交问题，我们将根据情况补充完善常见问题库。</p>
+      </div>
+    </section>
+
+    <!-- 问题反馈入口 -->
+    <section class="feedback-section">
+      <p class="feedback-text">没有找到想问的问题？请提交反馈，我们将根据情况补充完善。</p>
+      <button class="feedback-btn" id="feedbackBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        提交问题反馈
+      </button>
+    </section>
+
+    <!-- 免责声明 -->
+    <footer class="footer">
+      <p class="footer-disclaimer">
+        免责声明：本页面提供的内容根据现有政策文件和常见业务口径整理，仅供参考学习使用。涉及具体项目办理、学分认定、整改监管等事项的，请以正式文件、主管部门要求及系统审核结果为准。内容如有更新，恕不另行通知。
+      </p>
+      <p class="footer-date">最后更新：2026-05-21</p>
+    </footer>
+  </div>
+
+  <!-- 反馈弹窗 -->
+  <div class="modal-overlay" id="modalOverlay" style="display:none;">
+    <div class="modal-content">
+      <h3 class="modal-title">问题反馈</h3>
+      <p class="modal-desc">
+        没有找到您想问的问题？请通过以下方式提交反馈，我们将根据情况补充完善常见问题库。
+      </p>
+      <div class="modal-body">
+        <p class="modal-subtitle">反馈方式：</p>
+        <ul class="modal-list">
+          <li>发送邮件至：cmefeedback@example.com</li>
+          <li>联系单位管理员协助提交</li>
+          <li>拨打客服热线：123-4567-8900</li>
+        </ul>
+        <p class="modal-tip">
+          提交反馈时请尽量详细描述您的问题，包括具体的业务场景和相关背景信息，以便我们更准确地为您解答。
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-close" id="modalClose">知道了</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
