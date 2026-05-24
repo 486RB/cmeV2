@@ -1,6 +1,7 @@
 /**
  * 继续医学教育 FAQ 智能搜索客服
- * 数据版本: qa-2.json (字段下划线命名)
+ * 数据版本: qa.json (2026-05-24)
+ * 字段: 下划线命名 (is_public, updated_at, query_count, policy_basis, answer_type)
  */
 
 // ===== 内嵌默认数据 =====
@@ -2548,22 +2549,36 @@ let currentCategory = null;
 
 // ===== DOM 元素 =====
 const els = {
-  searchInput: document.getElementById('searchInput'),
-  categoryButtons: document.getElementById('categoryButtons'),
-  clearCategory: document.getElementById('clearCategory'),
-  emptyState: document.getElementById('emptyState'),
-  resultsContent: document.getElementById('resultsContent'),
-  resultsCount: document.getElementById('resultsCount'),
-  recommendedAnswer: document.getElementById('recommendedAnswer'),
-  relatedQuestions: document.getElementById('relatedQuestions'),
-  noResults: document.getElementById('noResults'),
-  feedbackBtn: document.getElementById('feedbackBtn'),
-  modalOverlay: document.getElementById('modalOverlay'),
-  modalClose: document.getElementById('modalClose'),
+  searchInput: null,
+  categoryButtons: null,
+  clearCategory: null,
+  emptyState: null,
+  resultsContent: null,
+  resultsCount: null,
+  recommendedAnswer: null,
+  relatedQuestions: null,
+  noResults: null,
+  feedbackBtn: null,
+  modalOverlay: null,
+  modalClose: null,
 };
 
 // ===== 初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
+  // 初始化 DOM 引用
+  els.searchInput = document.getElementById('searchInput');
+  els.categoryButtons = document.getElementById('categoryButtons');
+  els.clearCategory = document.getElementById('clearCategory');
+  els.emptyState = document.getElementById('emptyState');
+  els.resultsContent = document.getElementById('resultsContent');
+  els.resultsCount = document.getElementById('resultsCount');
+  els.recommendedAnswer = document.getElementById('recommendedAnswer');
+  els.relatedQuestions = document.getElementById('relatedQuestions');
+  els.noResults = document.getElementById('noResults');
+  els.feedbackBtn = document.getElementById('feedbackBtn');
+  els.modalOverlay = document.getElementById('modalOverlay');
+  els.modalClose = document.getElementById('modalClose');
+
   loadData().then(() => {
     bindEvents();
   });
@@ -2578,37 +2593,43 @@ async function loadData() {
     if (response.ok) {
       const json = await response.json();
       const items = json.items || [];
+      // is_public 是字符串 "是"/"否"
       qaData = items.filter(item => item.is_public === '是' && item.status === '已发布');
-      console.log('已从 qa.json 加载 ' + qaData.length + ' 条数据');
+      console.log('[FAQ] 从 qa.json 加载 ' + qaData.length + ' 条数据');
       return;
     }
   } catch (e) {
-    console.log('无法从 qa.json 加载，使用内嵌数据');
+    console.log('[FAQ] 无法从 qa.json 加载: ' + e.message);
   }
   // 使用内嵌数据
   const items = DEFAULT_DATA.items || [];
   qaData = items.filter(item => item.is_public === '是' && item.status === '已发布');
-  console.log('已使用内嵌数据 ' + qaData.length + ' 条');
+  console.log('[FAQ] 使用内嵌数据 ' + qaData.length + ' 条');
 }
 
 /**
  * 绑定事件
  */
 function bindEvents() {
+  // 搜索输入
   els.searchInput.addEventListener('input', (e) => {
     currentQuery = e.target.value.trim();
     performSearch();
   });
 
+  // 分类按钮
   els.categoryButtons.addEventListener('click', (e) => {
     const btn = e.target.closest('.category-btn');
     if (!btn) return;
+
     const category = btn.dataset.category;
     if (currentCategory === category) {
+      // 取消选中
       currentCategory = null;
       btn.classList.remove('active');
       els.clearCategory.style.display = 'none';
     } else {
+      // 选中新分类
       document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
       currentCategory = category;
       btn.classList.add('active');
@@ -2617,6 +2638,7 @@ function bindEvents() {
     performSearch();
   });
 
+  // 清除筛选
   els.clearCategory.addEventListener('click', () => {
     currentCategory = null;
     document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
@@ -2624,16 +2646,19 @@ function bindEvents() {
     performSearch();
   });
 
+  // 反馈按钮
   els.feedbackBtn.addEventListener('click', () => {
     els.modalOverlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   });
 
+  // 关闭弹窗
   els.modalClose.addEventListener('click', closeModal);
   els.modalOverlay.addEventListener('click', (e) => {
     if (e.target === els.modalOverlay) closeModal();
   });
 
+  // ESC 关闭弹窗
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && els.modalOverlay.style.display === 'flex') {
       closeModal();
@@ -2648,43 +2673,77 @@ function closeModal() {
 
 // ===== 搜索核心逻辑 =====
 
+/**
+ * 计算匹配分数
+ * 优先级：标题完全匹配 > 标题包含 > 关键词完全匹配 > 关键词包含 > 浏览量 > 更新时间
+ */
 function calculateScore(item, query) {
   const q = query.toLowerCase();
   const title = item.question.toLowerCase();
-  const keywords = item.keywords.map(k => k.toLowerCase());
+  const keywords = (item.keywords || []).map(k => k.toLowerCase());
 
   let score = 0;
 
-  if (title === q) score += 1000;
-  else if (title.includes(q)) score += 500;
+  // 1. 问题标题完全匹配
+  if (title === q) {
+    score += 1000;
+  }
+  // 2. 问题标题包含
+  else if (title.includes(q)) {
+    score += 500;
+  }
 
+  // 3. 关键词完全匹配
   const exactKwMatch = keywords.some(k => k === q);
-  if (exactKwMatch) score += 300;
+  if (exactKwMatch) {
+    score += 300;
+  }
 
+  // 4. 关键词部分匹配
   const partialKwMatch = keywords.some(k => k.includes(q));
-  if (partialKwMatch && !exactKwMatch) score += 100;
+  if (partialKwMatch && !exactKwMatch) {
+    score += 100;
+  }
 
-  score += Math.min(item.query_count / 10, 10);
+  // 5. 浏览量加成
+  score += Math.min((item.query_count || 0) / 10, 10);
 
-  const daysSince = (Date.now() - new Date(item.updated_at).getTime()) / (1000 * 60 * 60 * 24);
-  score += Math.max(0, 30 - daysSince);
+  // 6. 更新时间加成
+  try {
+    const daysSince = (Date.now() - new Date(item.updated_at).getTime()) / (1000 * 60 * 60 * 24);
+    score += Math.max(0, 30 - daysSince);
+  } catch (e) {
+    // 日期解析失败不影响评分
+  }
 
   return score;
 }
 
+/**
+ * 执行搜索
+ */
 function performSearch() {
   const hasQuery = currentQuery.length > 0;
   const hasCategory = currentCategory !== null;
 
+  // 无任何条件，显示空状态
   if (!hasQuery && !hasCategory) {
     showEmptyState();
     return;
   }
 
+  // 数据未加载
+  if (!qaData || qaData.length === 0) {
+    showNoResults();
+    return;
+  }
+
+  // 按分类筛选
   let filtered = hasCategory
     ? qaData.filter(item => item.category === currentCategory)
     : [...qaData];
 
+  // 按搜索词匹配
   let results;
   if (hasQuery) {
     results = filtered
@@ -2692,9 +2751,16 @@ function performSearch() {
       .filter(r => r.score > 0)
       .sort((a, b) => b.score - a.score);
   } else {
+    // 无搜索词时按更新时间排序
     results = filtered
       .map(item => ({ item, score: 0 }))
-      .sort((a, b) => new Date(b.item.updated_at) - new Date(a.item.updated_at));
+      .sort((a, b) => {
+        try {
+          return new Date(b.item.updated_at) - new Date(a.item.updated_at);
+        } catch (e) {
+          return 0;
+        }
+      });
   }
 
   if (results.length === 0) {
@@ -2724,9 +2790,11 @@ function showResults(results) {
   els.resultsContent.style.display = 'block';
   els.resultsCount.textContent = '共找到 ' + results.length + ' 条结果';
 
+  // 推荐答案（第一条）
   const recommended = results[0];
   els.recommendedAnswer.innerHTML = renderAnswerCard(recommended.item, true);
 
+  // 相关问题（其余，最多5条）
   const related = results.slice(1, 6);
   if (related.length > 0) {
     els.relatedQuestions.innerHTML =
@@ -2737,13 +2805,16 @@ function showResults(results) {
   }
 }
 
+/**
+ * 渲染答案卡片 HTML
+ */
 function renderAnswerCard(item, isRecommended) {
-  // policy_basis 是数组，拼接为字符串
-  const policyText = Array.isArray(item.policy_basis)
-    ? item.policy_basis.join('；')
-    : (item.policy_basis || '');
+  // policy_basis 是字符串
+  let policyText = item.policy_basis || '';
+  // 去掉换行符，只保留主要政策名称
+  policyText = policyText.split('\n')[0].trim();
 
-  const copyText = [
+  const copyTextLines = [
     '【问题】',
     item.question,
     '',
@@ -2758,51 +2829,58 @@ function renderAnswerCard(item, isRecommended) {
     '',
     '【更新时间】',
     item.updated_at
-  ].join('\n');
-
+  ];
+  const copyText = copyTextLines.join('\n');
   const copyTextEscaped = copyText.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
-  return `
-    <div class="answer-card ${isRecommended ? 'recommended' : ''}">
-      <button class="answer-header" onclick="toggleAnswer(this)" aria-expanded="${isRecommended ? 'true' : 'false'}">
-        <h3 class="answer-title">
-          ${isRecommended ? '<span class="badge">推荐答案</span>' : ''}
-          ${escapeHtml(item.question)}
-        </h3>
-        <svg class="answer-toggle ${isRecommended ? 'expanded' : ''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </button>
-      <div class="answer-body" style="display: ${isRecommended ? 'block' : 'none'}">
-        <div class="answer-content">
-          <p>${escapeHtml(item.answer)}</p>
-        </div>
-        <div class="answer-meta">
-          <div><span class="label">【分类】</span>${escapeHtml(item.category)}${item.subcategory ? ' - ' + escapeHtml(item.subcategory) : ''}</div>
-          <div><span class="label">【政策依据】</span>${escapeHtml(policyText)}</div>
-          <div><span class="label">【更新时间】</span>${escapeHtml(item.updated_at)}</div>
-        </div>
-        <div class="answer-footer">
-          <p class="answer-hint">温馨提示：本答案根据现有政策文件和常见业务口径整理，仅供参考。涉及具体项目办理、学分认定、整改监管等事项的，以正式文件、主管部门要求及系统审核结果为准。</p>
-          <button class="copy-btn" onclick="copyAnswer(this, '${copyTextEscaped}')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-            </svg>
-            复制答案
-          </button>
-        </div>
-      </div>
-    </div>
-  `;
+  return (
+    '<div class="answer-card ' + (isRecommended ? 'recommended' : '') + '">' +
+      '<button class="answer-header" onclick="toggleAnswer(this)" aria-expanded="' + (isRecommended ? 'true' : 'false') + '">' +
+        '<h3 class="answer-title">' +
+          (isRecommended ? '<span class="badge">推荐答案</span>' : '') +
+          escapeHtml(item.question) +
+        '</h3>' +
+        '<svg class="answer-toggle ' + (isRecommended ? 'expanded' : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+          '<polyline points="6 9 12 15 18 9"></polyline>' +
+        '</svg>' +
+      '</button>' +
+      '<div class="answer-body" style="display: ' + (isRecommended ? 'block' : 'none') + '">' +
+        '<div class="answer-content">' +
+          '<p>' + escapeHtml(item.answer) + '</p>' +
+        '</div>' +
+        '<div class="answer-meta">' +
+          '<div><span class="label">【分类】</span>' + escapeHtml(item.category) + (item.subcategory ? ' - ' + escapeHtml(item.subcategory) : '') + '</div>' +
+          '<div><span class="label">【政策依据】</span>' + escapeHtml(policyText) + '</div>' +
+          '<div><span class="label">【更新时间】</span>' + escapeHtml(item.updated_at) + '</div>' +
+        '</div>' +
+        '<div class="answer-footer">' +
+          '<p class="answer-hint">温馨提示：本答案根据现有政策文件和常见业务口径整理，仅供参考。涉及具体项目办理、学分认定、整改监管等事项的，以正式文件、主管部门要求及系统审核结果为准。</p>' +
+          '<button class="copy-btn" onclick="copyAnswer(this, ' + "'" + copyTextEscaped + "'" + ')">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">' +
+              '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>' +
+              '<path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>' +
+            '</svg>' +
+            '复制答案' +
+          '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>'
+  );
 }
 
+/**
+ * HTML 转义
+ */
 function escapeHtml(text) {
+  if (!text) return '';
   const div = document.createElement('div');
   div.textContent = text;
   return div.innerHTML;
 }
 
+/**
+ * 展开/折叠答案
+ */
 window.toggleAnswer = function(button) {
   const body = button.nextElementSibling;
   const toggle = button.querySelector('.answer-toggle');
@@ -2819,6 +2897,9 @@ window.toggleAnswer = function(button) {
   }
 };
 
+/**
+ * 复制答案到剪贴板
+ */
 window.copyAnswer = async function(button, text) {
   const temp = document.createElement('textarea');
   temp.innerHTML = text;
@@ -2841,21 +2922,10 @@ window.copyAnswer = async function(button, text) {
 
   if (success) {
     button.classList.add('copied');
-    button.innerHTML = `
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-      已复制
-    `;
+    button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>已复制';
     setTimeout(() => {
       button.classList.remove('copied');
-      button.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-          <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
-        </svg>
-        复制答案
-      `;
+      button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>复制答案';
     }, 2000);
   }
 };
