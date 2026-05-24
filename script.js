@@ -2837,6 +2837,7 @@ function renderAnswerCard(item, isRecommended) {
     '<div class="answer-card ' + (isRecommended ? 'recommended' : '') + '">' +
       '<button class="answer-header" onclick="toggleAnswer(this)" aria-expanded="' + (isRecommended ? 'true' : 'false') + '">' +
         '<h3 class="answer-title">' +
+          '<span class="qid">' + escapeHtml(item.id) + '</span>' +
           (isRecommended ? '<span class="badge">推荐答案</span>' : '') +
           escapeHtml(item.question) +
         '</h3>' +
