@@ -1,129 +1,91 @@
-# \u7ee7\u7eed\u533b\u5b66\u6559\u80b2 FAQ \u667a\u80fd\u641c\u7d22\u5ba2\u670d\u9759\u6001\u7f51\u9875
+ 继续医学教育 FAQ 智能搜索客服静态网页
+ 项目用途
+本项目是一个面向继续医学教育领域的常见问题查询静态网页，适用于：
+- 项目申报、举办管理、学分管理、远程教育、资料归档、整改监管等常见问题查询
+- 医疗卫生机构管理员、项目负责人、学员个人等角色的自助查询服务
+- 无需登录、不限查询次数、不接入大模型的轻量化知识库查询工具
+ 项目结构
+.
+├── index.html          # 网页入口
+├── qa.json             # Q&A 数据文件（可通过替换此文件更新知识库）
+├── assets/
+│   ├── index-xxx.css   # 样式文件
+│   └── index-xxx.js    # 脚本文件
+├── \u7ee7\u7eed\u533b\u5b66\u6559\u80b2\u667a\u80fd\u5ba2\u670d_QA\u77e5\u8bc6\u5e93.xlsx  # Q&A 知识库 Excel 维护模板
+└── README.md           # 本文档
 
-\u7eaf\u9759\u6001\u6587\u4ef6\u96c6\uff0c\u53ef\u76f4\u63a5\u90e8\u7f72\u5230 GitHub Pages\u3002
+ 如何修改 Q&A
+ 方法一：直接修改 qa.json（推荐）
+1. 打开 qa.json 文件
+2. 按照现有格式添加、修改或删除问题条目
+3. 确保每个问题包含以下必填字段：- id: 唯一编号（如 Q001）
+- question: 问题标题
+- answer: 标准答案
+- category: 大类（如"学分管理"）
+- keywords: 关键词数组（用于搜索匹配）
+- policy: 政策依据文件名称
+- updateDate: 更新日期（YYYY-MM-DD 格式）
+- isPublic: 是否公开（true/false，只有 true 才会展示）
+- status: 状态（"已发布"才会展示）
+4. 保存文件后刷新网页即可生效
+ 方法二：通过 Excel 维护后导出
+1. 打开 继续医学教育智能客服_QA知识库.xlsx
+2. 在"Q&A知识库"工作表中维护问题内容
+3. 使用下拉选项确保分类、状态等字段的规范性
+4. 维护完成后，导出为 JSON 格式并重命名为 qa.json
+5. 替换项目中的 qa.json 文件
+ 如何替换 qa.json
+ 本地测试
+直接将新的 qa.json 文件覆盖到项目目录下，刷新浏览器即可。
+ 部署到 GitHub Pages
+1. 将更新后的 qa.json 提交到 GitHub 仓库
+2. 确保 qa.json 位于仓库根目录或 public/ 目录下
+3. GitHub Pages 会自动部署更新内容
+ 如何部署到 GitHub Pages
+ 步骤一：创建 GitHub 仓库
+1. 登录 GitHub，点击右上角 "+" 号 → "New repository"
+2. 填写仓库名称（如 cme-faq-webpage）
+3. 选择 "Public" 可见性
+4. 点击 "Create repository"
+ 步骤二：上传文件
+ 方式 A：通过 Git 命令行
+# 克隆仓库
+git clone https://github.com/\u4f60\u7684\u7528\u6237\u540d/cme-faq-webpage.git
+cd cme-faq-webpage
 
-## \u6587\u4ef6\u8bf4\u660e
+# 将构建后的文件复制到仓库目录
+# （将 dist 目录下的 index.html、qa.json、assets 文件夹复制过来）
 
-| \u6587\u4ef6 | \u8bf4\u660e |
-|------|------|
-| `index.html` | \u7f51\u9875\u4e3b\u9875\u5165\u53e3\uff0c\u5305\u542b\u5b8c\u6574\u7684\u9875\u9762\u7ed3\u6784 |
-| `style.css` | \u6837\u5f0f\u6587\u4ef6\uff0c\u79fb\u52a8\u7aef\u4f18\u5148\u9002\u914d |
-| `script.js` | \u4ea4\u4e92\u903b\u8f91\uff0c\u5305\u542b\u5185\u5d4c\u6570\u636e\u548c\u641c\u7d22\u7b97\u6cd5 |
-| `qa.json` | Q&A \u6570\u636e\u6587\u4ef6\uff0c\u53ef\u66ff\u6362\u66f4\u65b0\u77e5\u8bc6\u5e93 |
-| `README.md` | \u672c\u6587\u6863 |
-
-## \u9879\u76ee\u7279\u70b9
-
-- \u7eaf\u524d\u7aef\u9759\u6001\u6587\u4ef6\uff0c\u65e0\u9700\u540e\u7aef\u670d\u52a1\u5668\u3001\u6570\u636e\u5e93\u3001\u6784\u5efa\u5de5\u5177
-- \u79fb\u52a8\u7aef\u4f18\u5148\u9002\u914d\uff0c\u7535\u8111\u7aef\u5c45\u4e2d\u663e\u793a\u6700\u5927\u5bbd\u5ea6 960px
-- `script.js` \u5185\u5d4c\u9ed8\u8ba4\u6570\u636e\uff0c\u76f4\u63a5\u6253\u5f00 `index.html` \u4e5f\u80fd\u6b63\u5e38\u8fd0\u884c
-- \u540c\u65f6\u652f\u6301\u4ece `qa.json` \u52a8\u6001\u52a0\u8f7d\u66f4\u65b0\u6570\u636e
-
-## \u5982\u4f55\u66f4\u65b0\u77e5\u8bc6\u5e93
-
-### \u65b9\u5f0f\u4e00\uff1a\u66ff\u6362 qa.json\uff08\u63a8\u8350\uff09
-
-1. \u4fee\u6539 `qa.json` \u6587\u4ef6\uff0c\u6309\u7167\u73b0\u6709\u683c\u5f0f\u6dfb\u52a0/\u4fee\u6539/\u5220\u9664\u95ee\u9898
-2. \u63d0\u4ea4\u5230 GitHub \u4ed3\u5e93\uff0c\u7f51\u9875\u81ea\u52a8\u66f4\u65b0
-
-### \u65b9\u5f0f\u4e8c\uff1a\u4fee\u6539\u5185\u5d4c\u6570\u636e
-
-1. \u6253\u5f00 `script.js`\uff0c\u627e\u5230 `DEFAULT_DATA` \u6570\u7ec4
-2. \u4fee\u6539\u5185\u5d4c\u6570\u636e\u5185\u5bb9
-3. \u540c\u6b65\u66f4\u65b0 `qa.json` \u4fdd\u6301\u4e00\u81f4
-
-### \u6570\u636e\u5b57\u6bb5\u8bf4\u660e
-
-```json
-{
-  "id": "Q001",
-  "question": "\u95ee\u9898\u6807\u9898",
-  "answer": "\u6807\u51c6\u7b54\u6848",
-  "category": "\u5927\u7c7b",
-  "subcategory": "\u5c0f\u7c7b",
-  "roles": ["\u9002\u7528\u89d2\u8272"],
-  "keywords": ["\u5173\u952e\u8bcd1", "\u5173\u952e\u8bcd2"],
-  "policy": "\u300a\u653f\u7b56\u4f9d\u636e\u6587\u4ef6\u300b",
-  "answerType": "\u653f\u7b56\u578b",
-  "isPublic": true,
-  "status": "\u5df2\u53d1\u5e03",
-  "updateDate": "2026-05-21",
-  "views": 0,
-  "remark": ""
-}
-```
-
-\u53ea\u6709 `isPublic === true` \u4e14 `status === "\u5df2\u53d1\u5e03"` \u7684\u5185\u5bb9\u624d\u4f1a\u5728\u524d\u53f0\u5c55\u793a\u3002
-
-## \u90e8\u7f72\u5230 GitHub Pages
-
-### \u6b65\u9aa41\uff1a\u521b\u5efa GitHub \u4ed3\u5e93
-
-1. \u767b\u5f55 GitHub\uff0c\u70b9\u51fb\u53f3\u4e0a\u89d2 **+** \u2192 **New repository**
-2. \u586b\u5199\u4ed3\u5e93\u540d\u79f0\uff08\u5982 `cme-faq`\uff09
-3. \u9009\u62e9 **Public**\uff08\u5fc5\u987b\u516c\u5f00\u624d\u80fd\u7528 GitHub Pages\uff09
-4. \u70b9\u51fb **Create repository**
-
-### \u6b65\u9aa42\uff1a\u4e0a\u4f20\u6587\u4ef6
-
-#### \u65b9\u5f0f A\uff1a\u547d\u4ee4\u884c\u63a8\u9001
-
-```bash
-# \u514b\u9686\u4ed3\u5e93\uff08\u5148\u590d\u5236\u4ed3\u5e93\u7684 HTTPS URL\uff09
-git clone https://github.com/\u4f60\u7684\u7528\u6237\u540d/cme-faq.git
-cd cme-faq
-
-# \u590d\u5236\u672c\u9879\u76ee\u7684 5 \u4e2a\u6587\u4ef6\u5230\u6b64\u76ee\u5f55
-cp /path/to/index.html ./
-cp /path/to/style.css ./
-cp /path/to/script.js ./
-cp /path/to/qa.json ./
-cp /path/to/README.md ./
-
-# \u63d0\u4ea4\u5e76\u63a8\u9001
+# 提交并推送
 git add .
-git commit -m "Initial commit: CME FAQ static webpage"
+git commit -m "Initial commit: FAQ static webpage"
 git push origin main
-```
 
-#### \u65b9\u5f0f B\uff1a\u76f4\u63a5\u4e0a\u4f20\uff08\u4e0d\u7528\u547d\u4ee4\u884c\uff09
-
-1. \u5728\u4ed3\u5e93\u9875\u9762\u70b9\u51fb **Add file** \u2192 **Upload files**
-2. \u5c06\u672c\u9879\u76ee\u7684 5 \u4e2a\u6587\u4ef6\uff08`index.html`, `style.css`, `script.js`, `qa.json`, `README.md`\uff09\u62d6\u62fd\u4e0a\u4f20
-3. \u70b9\u51fb **Commit changes**
-
-### \u6b65\u9aa43\uff1a\u542f\u7528 GitHub Pages
-
-1. \u8fdb\u5165\u4ed3\u5e93\u7684 **Settings** \u9875\u9762
-2. \u5de6\u4fa7\u83dc\u5355\u627e\u5230 **Pages**
-3. **Source** \u9009\u62e9 **Deploy from a branch**
-4. **Branch** \u9009\u62e9 **main**\uff0c\u6587\u4ef6\u5939\u9009\u62e9 **/(root)**
-5. \u70b9\u51fb **Save**
-6. \u7b49\u5f85 1-2 \u5206\u949f\uff0c\u9875\u9762\u4f1a\u663e\u793a\u8bbf\u95ee\u94fe\u63a5
-
-**\u8bbf\u95ee\u5730\u5740\u683c\u5f0f**：`https://\u4f60\u7684\u7528\u6237\u540d.github.io/cme-faq/`
-
-### \u66f4\u65b0\u7f51\u9875\u5185\u5bb9
-
-\u53ea\u9700\u66f4\u65b0 `qa.json` \u6587\u4ef6\u5e76\u63a8\u9001\u5230 GitHub\uff0c\u7f51\u9875\u4f1a\u81ea\u52a8\u5237\u65b0\u3002
-
-## \u672c\u5730\u9884\u89c8
-
-\u53cc\u51fb\u6253\u5f00 `index.html` \u5373\u53ef\u5728\u6d4f\u89c8\u5668\u4e2d\u9884\u89c8\uff0c\u65e0\u9700\u4efb\u4f55\u670d\u52a1\u5668\u73af\u5883\u3002
-
-\u6216\u8005\u4f7f\u7528\u7b80\u5355\u672c\u5730\u670d\u52a1\u5668\uff1a
-
-```bash
-# Python 3
-cd \u9879\u76ee\u76ee\u5f55
-python -m http.server 8080
-
-# \u7136\u540e\u8bbf\u95ee http://localhost:8080
-```
-
-## \u6ce8\u610f\u4e8b\u9879
-
-- \u8bf7\u786e\u4fdd `qa.json` \u4e0e `script.js` \u4e2d\u7684 `DEFAULT_DATA` \u4fdd\u6301\u540c\u6b65
-- \u53ea\u6709 `isPublic: true` \u4e14 `status: "\u5df2\u53d1\u5e03"` \u7684\u6570\u636e\u624d\u4f1a\u5c55\u793a
-- \u641c\u7d22\u5339\u914d\u8303\u56f4\uff1a\u95ee\u9898\u6807\u9898 + \u5173\u952e\u8bcd/\u540c\u4e49\u8bcd
-- \u7b56\u7565\u6587\u4ef6\u540d\u79f0\u4ec5\u4f5c\u4e3a\u53c2\u8003\u5c55\u793a\uff0c\u8bf7\u6838\u5b9e\u771f\u5b9e\u653f\u7b56\u5185\u5bb9
+ 方式 B：直接上传（无需命令行）
+1. 在仓库页面点击 "Add file" → "Upload files"
+2. 将 index.html、qa.json 和 assets 文件夹拖拽上传
+3. 点击 "Commit changes"
+ 步骤三：启用 GitHub Pages
+1. 进入仓库的 "Settings" 页面
+2. 左侧菜单找到 "Pages"
+3. "Source" 选择 "Deploy from a branch"
+4. "Branch" 选择 "main" 或 "master"，文件夹选择 "/ (root)"
+5. 点击 "Save"
+6. 等待几分钟，页面会显示访问链接（如 https://\u4f60\u7684\u7528\u6237\u540d.github.io/cme-faq-webpage/）
+ 注意事项
+1. 数据过滤规则：前台只展示 isPublic === true 且 status === "已发布" 的内容
+2. 搜索范围：目前只搜索"问题标题"和"关键词/同义词"，不搜索"标准答案"正文
+3. 排序规则：按匹配度（标题完全匹配 > 标题包含 > 关键词完全匹配 > 关键词部分匹配）排序
+4. 移动端适配：页面已针对手机端优化，搜索框醒目，分类按钮可换行，答案卡片宽度自适应
+5. 浏览器兼容性：支持 Chrome、Firefox、Safari、Edge 等主流浏览器的最新版本
+6. 更新频率：建议定期更新知识库内容，并在"更新记录"工作表中记录每次更新
+ 技术栈
+- HTML + CSS + JavaScript（React + TypeScript + Vite）
+- 纯静态网页，无需后端服务器
+- 不依赖数据库，不接入付费 API
+- 数据通过本地 qa.json 文件加载
+ 联系方式
+如有问题或建议，请通过以下方式反馈：
+- 发送邮件至：cmefeedback@example.com
+- 联系单位管理员
+- 拨打客服热线：123-4567-8900
