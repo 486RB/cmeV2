@@ -1,3 +1,9 @@
+/**
+ * 继续医学教育 FAQ 智能搜索客服
+ * 数据版本: qa.json (2026-05-25)
+ * 修复: is_public 直接取自Excel"是否公开"字段，不根据status推断
+ */
+
 const DEFAULT_DATA = {
   "name": "继续医学教育智能客服 Q&A 知识库",
   "version": "2026-05-25",
@@ -2526,7 +2532,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "根据广东省继续医学教育管理有关要求",
       "answer_type": "解释型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2550,7 +2556,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "国家有关规定\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2575,7 +2581,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "国家有关规定\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2598,7 +2604,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《关于印发继续医学教育学分管理办法（试行）的通知》\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2621,7 +2627,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《关于印发继续医学教育学分管理办法（试行）的通知》\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2644,7 +2650,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2668,7 +2674,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2691,7 +2697,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2714,7 +2720,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2737,7 +2743,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2760,7 +2766,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2783,7 +2789,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2806,7 +2812,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2829,7 +2835,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2853,7 +2859,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2877,7 +2883,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2900,7 +2906,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2923,7 +2929,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2946,7 +2952,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2970,7 +2976,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -2994,7 +3000,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -3018,7 +3024,7 @@ const DEFAULT_DATA = {
       ],
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
-      "is_public": "否",
+      "is_public": "是",
       "status": "已整理",
       "updated_at": "2026-05-25",
       "query_count": 0,
@@ -3058,7 +3064,8 @@ async function loadData() {
     if (response.ok) {
       const json = await response.json();
       const items = json.items || [];
-      qaData = items.filter(item => item.is_public === '是' && item.status === '已发布');
+      // 关键修复：只检查 is_public === '是'，不检查 status
+      qaData = items.filter(item => item.is_public === '是');
       console.log('[FAQ] 从 qa.json 加载 ' + qaData.length + ' 条');
       return;
     }
@@ -3066,7 +3073,7 @@ async function loadData() {
     console.log('[FAQ] qa.json 加载失败: ' + e.message);
   }
   const items = DEFAULT_DATA.items || [];
-  qaData = items.filter(item => item.is_public === '是' && item.status === '已发布');
+  qaData = items.filter(item => item.is_public === '是');
   console.log('[FAQ] 使用内嵌数据 ' + qaData.length + ' 条');
 }
 
@@ -3152,9 +3159,7 @@ function calculateMatchScore(item, query) {
 
 function calculateBonusScore(item) {
   let bonus = 0;
-  // 浏览量加成
   bonus += Math.min((item.query_count || 0) / 10, 10);
-  // 更新时间加成（新内容优先）
   try {
     const days = (Date.now() - new Date(item.updated_at).getTime()) / (1000 * 60 * 60 * 24);
     bonus += Math.max(0, 30 - days);
@@ -3176,19 +3181,16 @@ function performSearch() {
     return;
   }
 
-  // 按分类筛选
   let filtered = hasCategory
     ? qaData.filter(item => item.category === currentCategory)
     : [...qaData];
 
   if (hasQuery) {
-    // 先计算匹配分，再计算加成
     const scored = filtered.map(item => {
       const matchScore = calculateMatchScore(item, currentQuery);
       const bonusScore = matchScore > 0 ? calculateBonusScore(item) : 0;
       return { item, score: matchScore + bonusScore, matchScore };
     });
-    // 只保留有匹配的
     const results = scored.filter(r => r.matchScore > 0).sort((a, b) => b.score - a.score);
     if (results.length === 0) {
       showNoResults();
@@ -3196,7 +3198,6 @@ function performSearch() {
       showResults(results);
     }
   } else {
-    // 仅分类，按更新时间排序
     const results = filtered
       .map(item => ({ item, score: 0 }))
       .sort((a, b) => new Date(b.item.updated_at) - new Date(a.item.updated_at));
