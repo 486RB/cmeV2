@@ -3327,3 +3327,89 @@ window.copyAnswer = async function(button, text) {
     }, 2000);
   }
 };
+
+// ===== 外部链接数据 =====
+const EXTERNAL_LINKS = [
+  {
+    category: '官网主页',
+    items: [
+      { name: '广东省卫生健康委员会', url: 'https://wsjkw.gd.gov.cn/' },
+      { name: '广东省医学会', url: 'http://www.gdma.cc/' },
+    ]
+  },
+  {
+    category: '管理平台',
+    items: [
+      { name: '广东省继续医学教育管理系统', url: 'http://gdkjpt.91huayi.com' },
+      { name: '全国继续医学教育公共服务平台', url: 'http://icme.chinacpd.cn' },
+      { name: '国家级CME项目网上申报及信息反馈系统', url: 'http://cmegsb.cma.org.cn' },
+      { name: '广东省专业技术人员继续教育管理系统', url: 'https://ggfw.hrss.gd.gov.cn/jxjy/home' },
+    ]
+  },
+  {
+    category: '远程教育平台',
+    items: [
+      { name: '好医生医学教育中心', url: 'https://www.haoyisheng.com' },
+      { name: '北京华医网科技股份有限公司', url: 'https://www.91huayi.com' },
+      { name: '北京大学医学继续教育学院', url: 'https://scme.bjmu.edu.cn' },
+      { name: '北京双卫医学技术培训中心有限公司', url: 'http://www.sww.com.cn' },
+      { name: '四川大学华西医院（华西区域协同医疗卫生服务平台）', url: 'https://hytweb.cd120.com/doctor/home' },
+      { name: '复旦大学附属中山医院', url: 'https://elearning.zs-hospital.sh.cn' },
+      { name: '中华医学会/中华医学电子音像出版社', url: 'http://cmeonline.cma-cme.com.cn' },
+      { name: '国家卫生健康委能力建设和继续教育中心', url: 'https://www.chinacpd.cn' },
+      { name: '人民卫生出版社', url: 'https://www.pmph.com' },
+      { name: '中国医师协会', url: 'https://www.cmda.net' },
+      { name: '北京举名继续教育咨询有限公司（举名教育网）', url: 'https://www.jumingedu.com' },
+      { name: '北京亿和博嘉教育科技有限公司（医博士网）', url: 'https://www.yiboshi.com' },
+    ]
+  }
+];
+
+// ===== 外部链接弹窗 =====
+document.addEventListener('DOMContentLoaded', () => {
+  const linksBtn = document.getElementById('linksBtn');
+  const linksOverlay = document.getElementById('linksOverlay');
+  const linksClose = document.getElementById('linksClose');
+  const linksBody = document.getElementById('linksBody');
+
+  if (linksBtn) {
+    linksBtn.addEventListener('click', () => {
+      renderLinks();
+      linksOverlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  if (linksClose) {
+    linksClose.addEventListener('click', () => {
+      linksOverlay.style.display = 'none';
+      document.body.style.overflow = '';
+    });
+  }
+
+  if (linksOverlay) {
+    linksOverlay.addEventListener('click', (e) => {
+      if (e.target === linksOverlay) {
+        linksOverlay.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  function renderLinks() {
+    if (!linksBody) return;
+    let html = '';
+    EXTERNAL_LINKS.forEach(group => {
+      html += '<div class="links-category">';
+      html += '<div class="links-category-title">' + escapeHtml(group.category) + '</div>';
+      html += '<ul class="links-list">';
+      group.items.forEach(link => {
+        html += '<li><a href="' + link.url + '" target="_blank" rel="noopener noreferrer">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>' +
+          escapeHtml(link.name) + '</a></li>';
+      });
+      html += '</ul></div>';
+    });
+    linksBody.innerHTML = html;
+  }
+});
