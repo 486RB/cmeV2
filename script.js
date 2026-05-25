@@ -1,10 +1,3 @@
-/**
- * 继续医学教育 FAQ 智能搜索客服
- * 数据版本: qa.json (2026-05-24)
- * 字段: 下划线命名 (is_public, updated_at, query_count, policy_basis, answer_type)
- */
-
-// ===== 内嵌默认数据 =====
 const DEFAULT_DATA = {
   "name": "继续医学教育智能客服 Q&A 知识库",
   "version": "2026-05-25",
@@ -3034,30 +3027,13 @@ const DEFAULT_DATA = {
   ]
 };
 
-// ===== 全局状态 =====
 let qaData = [];
 let currentQuery = '';
 let currentCategory = null;
 
-// ===== DOM 元素 =====
-const els = {
-  searchInput: null,
-  categoryButtons: null,
-  clearCategory: null,
-  emptyState: null,
-  resultsContent: null,
-  resultsCount: null,
-  recommendedAnswer: null,
-  relatedQuestions: null,
-  noResults: null,
-  feedbackBtn: null,
-  modalOverlay: null,
-  modalClose: null,
-};
+const els = {};
 
-// ===== 初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
-  // 初始化 DOM 引用
   els.searchInput = document.getElementById('searchInput');
   els.categoryButtons = document.getElementById('categoryButtons');
   els.clearCategory = document.getElementById('clearCategory');
@@ -3076,52 +3052,39 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/**
- * 加载数据：优先从 qa.json 加载，失败则使用内嵌数据
- */
 async function loadData() {
   try {
     const response = await fetch('qa.json');
     if (response.ok) {
       const json = await response.json();
       const items = json.items || [];
-      // is_public 是字符串 "是"/"否"
       qaData = items.filter(item => item.is_public === '是' && item.status === '已发布');
-      console.log('[FAQ] 从 qa.json 加载 ' + qaData.length + ' 条数据');
+      console.log('[FAQ] 从 qa.json 加载 ' + qaData.length + ' 条');
       return;
     }
   } catch (e) {
-    console.log('[FAQ] 无法从 qa.json 加载: ' + e.message);
+    console.log('[FAQ] qa.json 加载失败: ' + e.message);
   }
-  // 使用内嵌数据
   const items = DEFAULT_DATA.items || [];
   qaData = items.filter(item => item.is_public === '是' && item.status === '已发布');
   console.log('[FAQ] 使用内嵌数据 ' + qaData.length + ' 条');
 }
 
-/**
- * 绑定事件
- */
 function bindEvents() {
-  // 搜索输入
   els.searchInput.addEventListener('input', (e) => {
     currentQuery = e.target.value.trim();
     performSearch();
   });
 
-  // 分类按钮
   els.categoryButtons.addEventListener('click', (e) => {
     const btn = e.target.closest('.category-btn');
     if (!btn) return;
-
     const category = btn.dataset.category;
     if (currentCategory === category) {
-      // 取消选中
       currentCategory = null;
       btn.classList.remove('active');
       els.clearCategory.style.display = 'none';
     } else {
-      // 选中新分类
       document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
       currentCategory = category;
       btn.classList.add('active');
@@ -3130,7 +3093,6 @@ function bindEvents() {
     performSearch();
   });
 
-  // 清除筛选
   els.clearCategory.addEventListener('click', () => {
     currentCategory = null;
     document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
@@ -3138,23 +3100,17 @@ function bindEvents() {
     performSearch();
   });
 
-  // 反馈按钮
   els.feedbackBtn.addEventListener('click', () => {
     els.modalOverlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   });
 
-  // 关闭弹窗
   els.modalClose.addEventListener('click', closeModal);
   els.modalOverlay.addEventListener('click', (e) => {
     if (e.target === els.modalOverlay) closeModal();
   });
-
-  // ESC 关闭弹窗
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && els.modalOverlay.style.display === 'flex') {
-      closeModal();
-    }
+    if (e.key === 'Escape' && els.modalOverlay.style.display === 'flex') closeModal();
   });
 }
 
@@ -3163,68 +3119,58 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// ===== 搜索核心逻辑 =====
+// ===== 搜索核心 =====
 
-/**
- * 计算匹配分数
- * 优先级：标题完全匹配 > 标题包含 > 关键词完全匹配 > 关键词包含 > 浏览量 > 更新时间
- */
-function calculateScore(item, query) {
+function calculateMatchScore(item, query) {
   const q = query.toLowerCase();
   const title = item.question.toLowerCase();
   const keywords = (item.keywords || []).map(k => k.toLowerCase());
 
-  let score = 0;
+  let matchScore = 0;
 
   // 1. 问题标题完全匹配
-  if (title === q) {
-    score += 1000;
-  }
+  if (title === q) matchScore += 1000;
   // 2. 问题标题包含
-  else if (title.includes(q)) {
-    score += 500;
-  }
+  else if (title.includes(q)) matchScore += 500;
 
   // 3. 关键词完全匹配
   const exactKwMatch = keywords.some(k => k === q);
-  if (exactKwMatch) {
-    score += 300;
-  }
+  if (exactKwMatch) matchScore += 300;
 
   // 4. 关键词部分匹配
   const partialKwMatch = keywords.some(k => k.includes(q));
-  if (partialKwMatch && !exactKwMatch) {
-    score += 100;
+  if (partialKwMatch && !exactKwMatch) matchScore += 100;
+
+  // 5. 答案正文包含（兜底匹配）
+  if (matchScore === 0) {
+    const answer = (item.answer || '').toLowerCase();
+    if (answer.includes(q)) matchScore += 10;
   }
 
-  // 5. 浏览量加成
-  score += Math.min((item.query_count || 0) / 10, 10);
-
-  // 6. 更新时间加成
-  try {
-    const daysSince = (Date.now() - new Date(item.updated_at).getTime()) / (1000 * 60 * 60 * 24);
-    score += Math.max(0, 30 - daysSince);
-  } catch (e) {
-    // 日期解析失败不影响评分
-  }
-
-  return score;
+  return matchScore;
 }
 
-/**
- * 执行搜索
- */
+function calculateBonusScore(item) {
+  let bonus = 0;
+  // 浏览量加成
+  bonus += Math.min((item.query_count || 0) / 10, 10);
+  // 更新时间加成（新内容优先）
+  try {
+    const days = (Date.now() - new Date(item.updated_at).getTime()) / (1000 * 60 * 60 * 24);
+    bonus += Math.max(0, 30 - days);
+  } catch (e) {}
+  return bonus;
+}
+
 function performSearch() {
   const hasQuery = currentQuery.length > 0;
   const hasCategory = currentCategory !== null;
 
-  // 无任何条件，显示空状态
   if (!hasQuery && !hasCategory) {
     showEmptyState();
     return;
   }
 
-  // 数据未加载
   if (!qaData || qaData.length === 0) {
     showNoResults();
     return;
@@ -3235,29 +3181,25 @@ function performSearch() {
     ? qaData.filter(item => item.category === currentCategory)
     : [...qaData];
 
-  // 按搜索词匹配
-  let results;
   if (hasQuery) {
-    results = filtered
-      .map(item => ({ item, score: calculateScore(item, currentQuery) }))
-      .filter(r => r.score > 0)
-      .sort((a, b) => b.score - a.score);
+    // 先计算匹配分，再计算加成
+    const scored = filtered.map(item => {
+      const matchScore = calculateMatchScore(item, currentQuery);
+      const bonusScore = matchScore > 0 ? calculateBonusScore(item) : 0;
+      return { item, score: matchScore + bonusScore, matchScore };
+    });
+    // 只保留有匹配的
+    const results = scored.filter(r => r.matchScore > 0).sort((a, b) => b.score - a.score);
+    if (results.length === 0) {
+      showNoResults();
+    } else {
+      showResults(results);
+    }
   } else {
-    // 无搜索词时按更新时间排序
-    results = filtered
+    // 仅分类，按更新时间排序
+    const results = filtered
       .map(item => ({ item, score: 0 }))
-      .sort((a, b) => {
-        try {
-          return new Date(b.item.updated_at) - new Date(a.item.updated_at);
-        } catch (e) {
-          return 0;
-        }
-      });
-  }
-
-  if (results.length === 0) {
-    showNoResults();
-  } else {
+      .sort((a, b) => new Date(b.item.updated_at) - new Date(a.item.updated_at));
     showResults(results);
   }
 }
@@ -3282,47 +3224,29 @@ function showResults(results) {
   els.resultsContent.style.display = 'block';
   els.resultsCount.textContent = '共找到 ' + results.length + ' 条结果';
 
-  // 推荐答案（第一条）
   const recommended = results[0];
   els.recommendedAnswer.innerHTML = renderAnswerCard(recommended.item, true);
 
-  // 相关问题（其余，最多5条）
   const related = results.slice(1, 6);
   if (related.length > 0) {
-    els.relatedQuestions.innerHTML =
-      '<h3 class="related-title">相关问题</h3>' +
+    els.relatedQuestions.innerHTML = '<h3 class="related-title">相关问题</h3>' +
       related.map(r => renderAnswerCard(r.item, false)).join('');
   } else {
     els.relatedQuestions.innerHTML = '';
   }
 }
 
-/**
- * 渲染答案卡片 HTML
- */
 function renderAnswerCard(item, isRecommended) {
-  // policy_basis 是字符串
-  let policyText = item.policy_basis || '';
-  // 去掉换行符，只保留主要政策名称
-  policyText = policyText.split('\n')[0].trim();
+  let policyText = (item.policy_basis || '').split('\n')[0].trim();
 
-  const copyTextLines = [
-    '【问题】',
-    item.question,
-    '',
-    '【答复】',
-    item.answer,
-    '',
-    '【分类】',
-    item.category + (item.subcategory ? ' - ' + item.subcategory : ''),
-    '',
-    '【政策依据】',
-    policyText,
-    '',
-    '【更新时间】',
-    item.updated_at
+  const copyLines = [
+    '【问题】', item.question, '',
+    '【答复】', item.answer, '',
+    '【分类】', item.category + (item.subcategory ? ' - ' + item.subcategory : ''), '',
+    '【政策依据】', policyText, '',
+    '【更新时间】', item.updated_at
   ];
-  const copyText = copyTextLines.join('\n');
+  const copyText = copyLines.join('\n');
   const copyTextEscaped = copyText.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
   return (
@@ -3333,14 +3257,10 @@ function renderAnswerCard(item, isRecommended) {
           (isRecommended ? '<span class="badge">推荐答案</span>' : '') +
           escapeHtml(item.question) +
         '</h3>' +
-        '<svg class="answer-toggle ' + (isRecommended ? 'expanded' : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
-          '<polyline points="6 9 12 15 18 9"></polyline>' +
-        '</svg>' +
+        '<svg class="answer-toggle ' + (isRecommended ? 'expanded' : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>' +
       '</button>' +
       '<div class="answer-body" style="display: ' + (isRecommended ? 'block' : 'none') + '">' +
-        '<div class="answer-content">' +
-          '<p>' + escapeHtml(item.answer) + '</p>' +
-        '</div>' +
+        '<div class="answer-content"><p>' + escapeHtml(item.answer) + '</p></div>' +
         '<div class="answer-meta">' +
           '<div><span class="label">【分类】</span>' + escapeHtml(item.category) + (item.subcategory ? ' - ' + escapeHtml(item.subcategory) : '') + '</div>' +
           '<div><span class="label">【政策依据】</span>' + escapeHtml(policyText) + '</div>' +
@@ -3349,11 +3269,7 @@ function renderAnswerCard(item, isRecommended) {
         '<div class="answer-footer">' +
           '<p class="answer-hint">温馨提示：本答案根据现有政策文件和常见业务口径整理，仅供参考。涉及具体项目办理、学分认定、整改监管等事项的，以正式文件、主管部门要求及系统审核结果为准。</p>' +
           '<button class="copy-btn" onclick="copyAnswer(this, ' + "'" + copyTextEscaped + "'" + ')">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">' +
-              '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>' +
-              '<path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>' +
-            '</svg>' +
-            '复制答案' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>复制答案' +
           '</button>' +
         '</div>' +
       '</div>' +
@@ -3361,9 +3277,6 @@ function renderAnswerCard(item, isRecommended) {
   );
 }
 
-/**
- * HTML 转义
- */
 function escapeHtml(text) {
   if (!text) return '';
   const div = document.createElement('div');
@@ -3371,14 +3284,10 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
-/**
- * 展开/折叠答案
- */
 window.toggleAnswer = function(button) {
   const body = button.nextElementSibling;
   const toggle = button.querySelector('.answer-toggle');
   const isExpanded = body.style.display === 'block';
-
   if (isExpanded) {
     body.style.display = 'none';
     toggle.classList.remove('expanded');
@@ -3390,29 +3299,24 @@ window.toggleAnswer = function(button) {
   }
 };
 
-/**
- * 复制答案到剪贴板
- */
 window.copyAnswer = async function(button, text) {
   const temp = document.createElement('textarea');
   temp.innerHTML = text;
   const cleanText = temp.value;
-
   let success = false;
   try {
     await navigator.clipboard.writeText(cleanText);
     success = true;
   } catch (err) {
-    const textarea = document.createElement('textarea');
-    textarea.value = cleanText;
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
+    const ta = document.createElement('textarea');
+    ta.value = cleanText;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
     success = document.execCommand('copy');
-    document.body.removeChild(textarea);
+    document.body.removeChild(ta);
   }
-
   if (success) {
     button.classList.add('copied');
     button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>已复制';
