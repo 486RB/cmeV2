@@ -509,6 +509,35 @@ body {
   transform: scale(0.98);
 }
 
+/* ===== 外部链接按钮 ===== */
+.links-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #166534;
+  background-color: #dcfce7;
+  border: 1.5px solid #86efac;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(134, 239, 172, 0.3);
+}
+
+.links-btn:hover {
+  background-color: #bbf7d0;
+  border-color: #4ade80;
+  color: #14532d;
+  box-shadow: 0 4px 12px rgba(134, 239, 172, 0.4);
+}
+
+.links-btn:active {
+  transform: scale(0.98);
+}
+
 /* ===== 免责声明 ===== */
 .footer {
   padding-top: 24px;
@@ -656,6 +685,68 @@ body {
 
 .modal-close:hover {
   background-color: #1d4ed8;
+}
+
+/* ===== 外部链接弹窗 ===== */
+.links-modal {
+  max-width: 520px;
+}
+
+.links-body {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.links-category {
+  margin-bottom: 18px;
+}
+
+.links-category-title {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  padding: 8px 12px;
+  background-color: #f1f5f9;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-list li {
+  margin-bottom: 2px;
+}
+
+.links-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #334155;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.links-list a:hover {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.links-list a svg {
+  flex-shrink: 0;
+  color: #94a3b8;
+}
+
+.links-list a:hover svg {
+  color: #2563eb;
 }
 
 /* ===== 滚动条 ===== */
