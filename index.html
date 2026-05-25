@@ -84,6 +84,15 @@
         </svg>
         提交问题反馈
       </button>
+      <div style="margin-top: 12px;">
+        <button class="links-btn" id="linksBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"></path>
+            <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"></path>
+          </svg>
+          相关机构与平台链接
+        </button>
+      </div>
     </section>
 
     <footer class="footer">
@@ -120,6 +129,18 @@
       </div>
       <div class="modal-footer">
         <button class="modal-close" id="modalClose">知道了</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 外部链接弹窗 -->
+  <div class="modal-overlay" id="linksOverlay" style="display:none;">
+    <div class="modal-content links-modal">
+      <h3 class="modal-title">相关机构与平台链接</h3>
+      <p class="modal-desc">点击机构名称即可访问对应网站</p>
+      <div class="links-body" id="linksBody"></div>
+      <div class="modal-footer">
+        <button class="modal-close" id="linksClose">关闭</button>
       </div>
     </div>
   </div>
