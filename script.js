@@ -1,8 +1,3 @@
-/**
- * 继续医学教育 FAQ 智能搜索客服
- * 数据版本: qa.json (2026-05-25)
- * 修复: is_public 直接取自Excel"是否公开"字段，不根据status推断
- */
 
 const DEFAULT_DATA = {
   "name": "继续医学教育智能客服 Q&A 知识库",
@@ -3033,383 +3028,275 @@ const DEFAULT_DATA = {
   ]
 };
 
-let qaData = [];
-let currentQuery = '';
-let currentCategory = null;
+const EXTERNAL_LINKS = [
+  { category: "官网主页", items: [
+    { name: "广东省卫生健康委员会", url: "https://wsjkw.gd.gov.cn/" },
+    { name: "广东省医学会", url: "http://www.gdma.cc/" }
+  ]},
+  { category: "管理平台", items: [
+    { name: "广东省继续医学教育管理系统", url: "http://gdkjpt.91huayi.com" },
+    { name: "全国继续医学教育公共服务平台", url: "http://icme.chinacpd.cn" },
+    { name: "国家级CME项目网上申报及信息反馈系统", url: "http://cmegsb.cma.org.cn" },
+    { name: "广东省专业技术人员继续教育管理系统", url: "https://ggfw.hrss.gd.gov.cn/jxjy/home" }
+  ]},
+  { category: "远程教育平台", items: [
+    { name: "好医生医学教育中心", url: "https://www.haoyisheng.com" },
+    { name: "北京华医网科技股份有限公司", url: "https://www.91huayi.com" },
+    { name: "北京大学医学继续教育学院", url: "https://scme.bjmu.edu.cn" },
+    { name: "北京双卫医学技术培训中心有限公司", url: "http://www.sww.com.cn" },
+    { name: "四川大学华西医院", url: "https://hytweb.cd120.com/doctor/home" },
+    { name: "复旦大学附属中山医院", url: "https://elearning.zs-hospital.sh.cn" },
+    { name: "中华医学会/中华医学电子音像出版社", url: "http://cmeonline.cma-cme.com.cn" },
+    { name: "国家卫生健康委能力建设和继续教育中心", url: "https://www.chinacpd.cn" },
+    { name: "人民卫生出版社", url: "https://www.pmph.com" },
+    { name: "中国医师协会", url: "https://www.cmda.net" },
+    { name: "北京举名继续教育咨询有限公司（举名教育网）", url: "https://www.jumingedu.com" },
+    { name: "北京亿和博嘉教育科技有限公司（医博士网）", url: "https://www.yiboshi.com" }
+  ]}
+];
 
+let qaData = [];
+let currentQuery = "";
+let currentCategory = null;
 const els = {};
 
-document.addEventListener('DOMContentLoaded', () => {
-  els.searchInput = document.getElementById('searchInput');
-  els.categoryButtons = document.getElementById('categoryButtons');
-  els.clearCategory = document.getElementById('clearCategory');
-  els.emptyState = document.getElementById('emptyState');
-  els.resultsContent = document.getElementById('resultsContent');
-  els.resultsCount = document.getElementById('resultsCount');
-  els.recommendedAnswer = document.getElementById('recommendedAnswer');
-  els.relatedQuestions = document.getElementById('relatedQuestions');
-  els.noResults = document.getElementById('noResults');
-  els.feedbackBtn = document.getElementById('feedbackBtn');
-  els.modalOverlay = document.getElementById('modalOverlay');
-  els.modalClose = document.getElementById('modalClose');
+document.addEventListener("DOMContentLoaded", function() {
+  els.searchInput = document.getElementById("searchInput");
+  els.categoryButtons = document.getElementById("categoryButtons");
+  els.clearCategory = document.getElementById("clearCategory");
+  els.emptyState = document.getElementById("emptyState");
+  els.resultsContent = document.getElementById("resultsContent");
+  els.resultsCount = document.getElementById("resultsCount");
+  els.recommendedAnswer = document.getElementById("recommendedAnswer");
+  els.relatedQuestions = document.getElementById("relatedQuestions");
+  els.noResults = document.getElementById("noResults");
+  els.feedbackBtn = document.getElementById("feedbackBtn");
+  els.modalOverlay = document.getElementById("modalOverlay");
+  els.modalClose = document.getElementById("modalClose");
+  els.linksOverlay = document.getElementById("linksOverlay");
+  els.linksBody = document.getElementById("linksBody");
 
-  loadData().then(() => {
+  loadData().then(function() {
     bindEvents();
   });
 });
 
 async function loadData() {
   try {
-    const response = await fetch('qa.json');
-    if (response.ok) {
-      const json = await response.json();
-      const items = json.items || [];
-      // 关键修复：只检查 is_public === '是'，不检查 status
-      qaData = items.filter(item => item.is_public === '是');
-      console.log('[FAQ] 从 qa.json 加载 ' + qaData.length + ' 条');
+    var res = await fetch("qa.json");
+    if (res.ok) {
+      var json = await res.json();
+      var items = json.items || [];
+      qaData = items.filter(function(item) { return item.is_public === "是"; });
+      console.log("[FAQ] loaded " + qaData.length + " from qa.json");
       return;
     }
-  } catch (e) {
-    console.log('[FAQ] qa.json 加载失败: ' + e.message);
+  } catch(e) {
+    console.log("[FAQ] fallback: " + e.message);
   }
-  const items = DEFAULT_DATA.items || [];
-  qaData = items.filter(item => item.is_public === '是');
-  console.log('[FAQ] 使用内嵌数据 ' + qaData.length + ' 条');
+  var items = DEFAULT_DATA.items || [];
+  qaData = items.filter(function(item) { return item.is_public === "是"; });
+  console.log("[FAQ] loaded " + qaData.length + " from embedded");
 }
 
 function bindEvents() {
-  els.searchInput.addEventListener('input', (e) => {
+  els.searchInput.addEventListener("input", function(e) {
     currentQuery = e.target.value.trim();
     performSearch();
   });
 
-  els.categoryButtons.addEventListener('click', (e) => {
-    const btn = e.target.closest('.category-btn');
+  els.categoryButtons.addEventListener("click", function(e) {
+    var btn = e.target.closest(".category-btn");
     if (!btn) return;
-    const category = btn.dataset.category;
-    if (currentCategory === category) {
+    var cat = btn.dataset.category;
+    if (currentCategory === cat) {
       currentCategory = null;
-      btn.classList.remove('active');
-      els.clearCategory.style.display = 'none';
+      btn.classList.remove("active");
+      els.clearCategory.style.display = "none";
     } else {
-      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-      currentCategory = category;
-      btn.classList.add('active');
-      els.clearCategory.style.display = 'inline-flex';
+      document.querySelectorAll(".category-btn").forEach(function(b) { b.classList.remove("active"); });
+      currentCategory = cat;
+      btn.classList.add("active");
+      els.clearCategory.style.display = "inline-flex";
     }
     performSearch();
   });
 
-  els.clearCategory.addEventListener('click', () => {
+  els.clearCategory.addEventListener("click", function() {
     currentCategory = null;
-    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
-    els.clearCategory.style.display = 'none';
+    document.querySelectorAll(".category-btn").forEach(function(b) { b.classList.remove("active"); });
+    els.clearCategory.style.display = "none";
     performSearch();
   });
 
-  els.feedbackBtn.addEventListener('click', () => {
-    els.modalOverlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+  els.feedbackBtn.addEventListener("click", function() {
+    els.modalOverlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
   });
 
-  els.modalClose.addEventListener('click', closeModal);
-  els.modalOverlay.addEventListener('click', (e) => {
+  els.modalClose.addEventListener("click", closeModal);
+  els.modalOverlay.addEventListener("click", function(e) {
     if (e.target === els.modalOverlay) closeModal();
   });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && els.modalOverlay.style.display === 'flex') closeModal();
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      if (els.modalOverlay.style.display === "flex") closeModal();
+      if (els.linksOverlay.style.display === "flex") closeLinksModal();
+    }
   });
 }
 
 function closeModal() {
-  els.modalOverlay.style.display = 'none';
-  document.body.style.overflow = '';
+  els.modalOverlay.style.display = "none";
+  document.body.style.overflow = "";
 }
 
-// ===== 搜索核心 =====
+function closeLinksModal() {
+  els.linksOverlay.style.display = "none";
+  document.body.style.overflow = "";
+}
+
+window.openLinksModal = function() {
+  renderLinksHTML();
+  els.linksOverlay.style.display = "flex";
+  document.body.style.overflow = "hidden";
+};
+
+window.closeLinksModal = closeLinksModal;
 
 function calculateMatchScore(item, query) {
-  const q = query.toLowerCase();
-  const title = item.question.toLowerCase();
-  const keywords = (item.keywords || []).map(k => k.toLowerCase());
-
-  let matchScore = 0;
-
-  // 1. 问题标题完全匹配
-  if (title === q) matchScore += 1000;
-  // 2. 问题标题包含
-  else if (title.includes(q)) matchScore += 500;
-
-  // 3. 关键词完全匹配
-  const exactKwMatch = keywords.some(k => k === q);
-  if (exactKwMatch) matchScore += 300;
-
-  // 4. 关键词部分匹配
-  const partialKwMatch = keywords.some(k => k.includes(q));
-  if (partialKwMatch && !exactKwMatch) matchScore += 100;
-
-  // 5. 答案正文包含（兜底匹配）
-  if (matchScore === 0) {
-    const answer = (item.answer || '').toLowerCase();
-    if (answer.includes(q)) matchScore += 10;
+  var q = query.toLowerCase();
+  var title = item.question.toLowerCase();
+  var keywords = (item.keywords || []).map(function(k) { return k.toLowerCase(); });
+  var score = 0;
+  if (title === q) score += 1000;
+  else if (title.includes(q)) score += 500;
+  if (keywords.some(function(k) { return k === q; })) score += 300;
+  if (keywords.some(function(k) { return k.includes(q); }) && !keywords.some(function(k) { return k === q; })) score += 100;
+  if (score === 0) {
+    var answer = (item.answer || "").toLowerCase();
+    if (answer.includes(q)) score += 10;
   }
-
-  return matchScore;
+  return score;
 }
 
 function calculateBonusScore(item) {
-  let bonus = 0;
-  bonus += Math.min((item.query_count || 0) / 10, 10);
+  var bonus = Math.min((item.query_count || 0) / 10, 10);
   try {
-    const days = (Date.now() - new Date(item.updated_at).getTime()) / (1000 * 60 * 60 * 24);
+    var days = (Date.now() - new Date(item.updated_at).getTime()) / (1000 * 60 * 60 * 24);
     bonus += Math.max(0, 30 - days);
-  } catch (e) {}
+  } catch(e) {}
   return bonus;
 }
 
 function performSearch() {
-  const hasQuery = currentQuery.length > 0;
-  const hasCategory = currentCategory !== null;
+  var hasQuery = currentQuery.length > 0;
+  var hasCategory = currentCategory !== null;
+  if (!hasQuery && !hasCategory) { showEmptyState(); return; }
+  if (!qaData || qaData.length === 0) { showNoResults(); return; }
 
-  if (!hasQuery && !hasCategory) {
-    showEmptyState();
-    return;
-  }
-
-  if (!qaData || qaData.length === 0) {
-    showNoResults();
-    return;
-  }
-
-  let filtered = hasCategory
-    ? qaData.filter(item => item.category === currentCategory)
-    : [...qaData];
+  var filtered = hasCategory ? qaData.filter(function(item) { return item.category === currentCategory; }) : qaData.slice();
 
   if (hasQuery) {
-    const scored = filtered.map(item => {
-      const matchScore = calculateMatchScore(item, currentQuery);
-      const bonusScore = matchScore > 0 ? calculateBonusScore(item) : 0;
-      return { item, score: matchScore + bonusScore, matchScore };
-    });
-    const results = scored.filter(r => r.matchScore > 0).sort((a, b) => b.score - a.score);
-    if (results.length === 0) {
-      showNoResults();
-    } else {
-      showResults(results);
-    }
+    var results = filtered.map(function(item) {
+      var ms = calculateMatchScore(item, currentQuery);
+      var bs = ms > 0 ? calculateBonusScore(item) : 0;
+      return { item: item, score: ms + bs, matchScore: ms };
+    }).filter(function(r) { return r.matchScore > 0; }).sort(function(a, b) { return b.score - a.score; });
+    results.length === 0 ? showNoResults() : showResults(results);
   } else {
-    const results = filtered
-      .map(item => ({ item, score: 0 }))
-      .sort((a, b) => new Date(b.item.updated_at) - new Date(a.item.updated_at));
-    showResults(results);
+    showResults(filtered.map(function(item) { return { item: item, score: 0 }; }).sort(function(a, b) {
+      try { return new Date(b.item.updated_at) - new Date(a.item.updated_at); } catch(e) { return 0; }
+    }));
   }
 }
 
-// ===== 视图渲染 =====
-
 function showEmptyState() {
-  els.emptyState.style.display = 'block';
-  els.resultsContent.style.display = 'none';
-  els.noResults.style.display = 'none';
+  els.emptyState.style.display = "block";
+  els.resultsContent.style.display = "none";
+  els.noResults.style.display = "none";
 }
 
 function showNoResults() {
-  els.emptyState.style.display = 'none';
-  els.resultsContent.style.display = 'none';
-  els.noResults.style.display = 'block';
+  els.emptyState.style.display = "none";
+  els.resultsContent.style.display = "none";
+  els.noResults.style.display = "block";
 }
 
 function showResults(results) {
-  els.emptyState.style.display = 'none';
-  els.noResults.style.display = 'none';
-  els.resultsContent.style.display = 'block';
-  els.resultsCount.textContent = '共找到 ' + results.length + ' 条结果';
-
-  const recommended = results[0];
-  els.recommendedAnswer.innerHTML = renderAnswerCard(recommended.item, true);
-
-  const related = results.slice(1, 6);
-  if (related.length > 0) {
-    els.relatedQuestions.innerHTML = '<h3 class="related-title">相关问题</h3>' +
-      related.map(r => renderAnswerCard(r.item, false)).join('');
-  } else {
-    els.relatedQuestions.innerHTML = '';
-  }
+  els.emptyState.style.display = "none";
+  els.noResults.style.display = "none";
+  els.resultsContent.style.display = "block";
+  els.resultsCount.textContent = "\u5171\u627e\u5230 " + results.length + " \u6761\u7ed3\u679c";
+  els.recommendedAnswer.innerHTML = renderCard(results[0].item, true);
+  var related = results.slice(1, 6);
+  els.relatedQuestions.innerHTML = related.length > 0
+    ? "<h3 class=\"related-title\">\u76f8\u5173\u95ee\u9898</h3>" + related.map(function(r) { return renderCard(r.item, false); }).join("")
+    : "";
 }
 
-function renderAnswerCard(item, isRecommended) {
-  let policyText = (item.policy_basis || '').split('\n')[0].trim();
-
-  const copyLines = [
-    '【问题】', item.question, '',
-    '【答复】', item.answer, '',
-    '【分类】', item.category + (item.subcategory ? ' - ' + item.subcategory : ''), '',
-    '【政策依据】', policyText, '',
-    '【更新时间】', item.updated_at
-  ];
-  const copyText = copyLines.join('\n');
-  const copyTextEscaped = copyText.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-
-  return (
-    '<div class="answer-card ' + (isRecommended ? 'recommended' : '') + '">' +
-      '<button class="answer-header" onclick="toggleAnswer(this)" aria-expanded="' + (isRecommended ? 'true' : 'false') + '">' +
-        '<h3 class="answer-title">' +
-          '<span class="qid">' + escapeHtml(item.id) + '</span>' +
-          (isRecommended ? '<span class="badge">推荐答案</span>' : '') +
-          escapeHtml(item.question) +
-        '</h3>' +
-        '<svg class="answer-toggle ' + (isRecommended ? 'expanded' : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>' +
-      '</button>' +
-      '<div class="answer-body" style="display: ' + (isRecommended ? 'block' : 'none') + '">' +
-        '<div class="answer-content"><p>' + escapeHtml(item.answer) + '</p></div>' +
-        '<div class="answer-meta">' +
-          '<div><span class="label">【分类】</span>' + escapeHtml(item.category) + (item.subcategory ? ' - ' + escapeHtml(item.subcategory) : '') + '</div>' +
-          '<div><span class="label">【政策依据】</span>' + escapeHtml(policyText) + '</div>' +
-          '<div><span class="label">【更新时间】</span>' + escapeHtml(item.updated_at) + '</div>' +
-        '</div>' +
-        '<div class="answer-footer">' +
-          '<p class="answer-hint">温馨提示：本答案根据现有政策文件和常见业务口径整理，仅供参考。涉及具体项目办理、学分认定、整改监管等事项的，以正式文件、主管部门要求及系统审核结果为准。</p>' +
-          '<button class="copy-btn" onclick="copyAnswer(this, ' + "'" + copyTextEscaped + "'" + ')">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>复制答案' +
-          '</button>' +
-        '</div>' +
-      '</div>' +
-    '</div>'
-  );
+function esc(text) {
+  if (!text) return "";
+  var d = document.createElement("div");
+  d.textContent = text;
+  return d.innerHTML;
 }
 
-function escapeHtml(text) {
-  if (!text) return '';
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
+function renderCard(item, isRec) {
+  var policy = (item.policy_basis || "").split("\n")[0].trim();
+  var ct = ["\u3010\u95ee\u9898\u3011", item.question, "", "\u3010\u7b54\u590d\u3011", item.answer, "", "\u3010\u5206\u7c7b\u3011", item.category + (item.subcategory ? " - " + item.subcategory : ""), "", "\u3010\u653f\u7b56\u4f9d\u636e\u3011", policy, "", "\u3010\u66f4\u65b0\u65f6\u95f4\u3011", item.updated_at].join("\n");
+  var cte = ct.replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  var h = "<div class=\"answer-card" + (isRec ? " recommended" : "") + "\"><button class=\"answer-header\" onclick=\"toggleAnswer(this)\" aria-expanded=\"" + (isRec ? "true" : "false") + "\"><h3 class=\"answer-title\"><span class=\"qid\">" + esc(item.id) + "</span>";
+  if (isRec) h += "<span class=\"badge\">\u63a8\u8350\u7b54\u6848</span>";
+  h += esc(item.question) + "</h3><svg class=\"answer-toggle" + (isRec ? " expanded" : "") + "\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"6 9 12 15 18 9\"></polyline></svg></button><div class=\"answer-body\" style=\"display:" + (isRec ? "block" : "none") + "\"><div class=\"answer-content\"><p>" + esc(item.answer) + "</p></div><div class=\"answer-meta\"><div><span class=\"label\">\u3010\u5206\u7c7b\u3011</span>" + esc(item.category) + (item.subcategory ? " - " + esc(item.subcategory) : "") + "</div><div><span class=\"label\">\u3010\u653f\u7b56\u4f9d\u636e\u3011</span>" + esc(policy) + "</div><div><span class=\"label\">\u3010\u66f4\u65b0\u65f6\u95f4\u3011</span>" + esc(item.updated_at) + "</div></div><div class=\"answer-footer\"><p class=\"answer-hint\">\u6e29\u99a8\u63d0\u793a\uff1a\u672c\u7b54\u6848\u6839\u636e\u73b0\u6709\u653f\u7b56\u6587\u4ef6\u548c\u5e38\u89c1\u4e1a\u52a1\u53e3\u5f84\u6574\u7406\uff0c\u4ec5\u4f9b\u53c2\u8003\u3002\u6d89\u53ca\u5177\u4f53\u9879\u76ee\u529e\u7406\u3001\u5b66\u5206\u8ba4\u5b9a\u3001\u6574\u6539\u76d1\u7ba1\u7b49\u4e8b\u9879\u7684\uff0c\u4ee5\u6b63\u5f0f\u6587\u4ef6\u3001\u4e3b\u7ba1\u90e8\u95e8\u8981\u6c42\u53ca\u7cfb\u7edf\u5ba1\u6838\u7ed3\u679c\u4e3a\u51c6\u3002</p><button class=\"copy-btn\" onclick=\"copyAnswer(this, &#39;" + cte + "&#39;)\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" width=\"14\" height=\"14\"><rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" ry=\"2\"></rect><path d=\"M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1\"></path></svg>\u590d\u5236\u7b54\u6848</button></div></div></div>";
+  return h;
 }
 
-window.toggleAnswer = function(button) {
-  const body = button.nextElementSibling;
-  const toggle = button.querySelector('.answer-toggle');
-  const isExpanded = body.style.display === 'block';
-  if (isExpanded) {
-    body.style.display = 'none';
-    toggle.classList.remove('expanded');
-    button.setAttribute('aria-expanded', 'false');
-  } else {
-    body.style.display = 'block';
-    toggle.classList.add('expanded');
-    button.setAttribute('aria-expanded', 'true');
-  }
+function renderLinksHTML() {
+  if (!els.linksBody) return;
+  var h = "";
+  EXTERNAL_LINKS.forEach(function(g) {
+    h += "<div class=\"links-category\"><div class=\"links-category-title\">" + esc(g.category) + "</div><ul class=\"links-list\">";
+    g.items.forEach(function(l) {
+      h += "<li><a href=\"" + l.url + "\" target=\"_blank\" rel=\"noopener noreferrer\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" width=\"14\" height=\"14\"><path d=\"M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6\"></path><polyline points=\"15 3 21 3 21 9\"></polyline><line x1=\"10\" y1=\"14\" x2=\"21\" y2=\"3\"></line></svg>" + esc(l.name) + "</a></li>";
+    });
+    h += "</ul></div>";
+  });
+  els.linksBody.innerHTML = h;
+}
+
+window.toggleAnswer = function(btn) {
+  var body = btn.nextElementSibling;
+  var toggle = btn.querySelector(".answer-toggle");
+  var expanded = body.style.display === "block";
+  body.style.display = expanded ? "none" : "block";
+  toggle.classList.toggle("expanded", !expanded);
+  btn.setAttribute("aria-expanded", String(!expanded));
 };
 
-window.copyAnswer = async function(button, text) {
-  const temp = document.createElement('textarea');
-  temp.innerHTML = text;
-  const cleanText = temp.value;
-  let success = false;
+window.copyAnswer = async function(btn, text) {
+  var t = document.createElement("textarea");
+  t.innerHTML = text;
+  var ok = false;
   try {
-    await navigator.clipboard.writeText(cleanText);
-    success = true;
-  } catch (err) {
-    const ta = document.createElement('textarea');
-    ta.value = cleanText;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
+    await navigator.clipboard.writeText(t.value);
+    ok = true;
+  } catch(e) {
+    var ta = document.createElement("textarea");
+    ta.value = t.value;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
     document.body.appendChild(ta);
     ta.select();
-    success = document.execCommand('copy');
+    ok = document.execCommand("copy");
     document.body.removeChild(ta);
   }
-  if (success) {
-    button.classList.add('copied');
-    button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="20 6 9 17 4 12"></polyline></svg>已复制';
-    setTimeout(() => {
-      button.classList.remove('copied');
-      button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>复制答案';
+  if (ok) {
+    btn.classList.add("copied");
+    btn.innerHTML = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" width=\"14\" height=\"14\"><polyline points=\"20 6 9 17 4 12\"></polyline></svg>\u5df2\u590d\u5236";
+    setTimeout(function() {
+      btn.classList.remove("copied");
+      btn.innerHTML = "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" width=\"14\" height=\"14\"><rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" ry=\"2\"></rect><path d=\"M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1\"></path></svg>\u590d\u5236\u7b54\u6848";
     }, 2000);
   }
 };
-
-// ===== 外部链接数据 =====
-const EXTERNAL_LINKS = [
-  {
-    category: '官网主页',
-    items: [
-      { name: '广东省卫生健康委员会', url: 'https://wsjkw.gd.gov.cn/' },
-      { name: '广东省医学会', url: 'http://www.gdma.cc/' },
-    ]
-  },
-  {
-    category: '管理平台',
-    items: [
-      { name: '广东省继续医学教育管理系统', url: 'http://gdkjpt.91huayi.com' },
-      { name: '全国继续医学教育公共服务平台', url: 'http://icme.chinacpd.cn' },
-      { name: '国家级CME项目网上申报及信息反馈系统', url: 'http://cmegsb.cma.org.cn' },
-      { name: '广东省专业技术人员继续教育管理系统', url: 'https://ggfw.hrss.gd.gov.cn/jxjy/home' },
-    ]
-  },
-  {
-    category: '远程教育平台',
-    items: [
-      { name: '好医生医学教育中心', url: 'https://www.haoyisheng.com' },
-      { name: '北京华医网科技股份有限公司', url: 'https://www.91huayi.com' },
-      { name: '北京大学医学继续教育学院', url: 'https://scme.bjmu.edu.cn' },
-      { name: '北京双卫医学技术培训中心有限公司', url: 'http://www.sww.com.cn' },
-      { name: '四川大学华西医院（华西区域协同医疗卫生服务平台）', url: 'https://hytweb.cd120.com/doctor/home' },
-      { name: '复旦大学附属中山医院', url: 'https://elearning.zs-hospital.sh.cn' },
-      { name: '中华医学会/中华医学电子音像出版社', url: 'http://cmeonline.cma-cme.com.cn' },
-      { name: '国家卫生健康委能力建设和继续教育中心', url: 'https://www.chinacpd.cn' },
-      { name: '人民卫生出版社', url: 'https://www.pmph.com' },
-      { name: '中国医师协会', url: 'https://www.cmda.net' },
-      { name: '北京举名继续教育咨询有限公司（举名教育网）', url: 'https://www.jumingedu.com' },
-      { name: '北京亿和博嘉教育科技有限公司（医博士网）', url: 'https://www.yiboshi.com' },
-    ]
-  }
-];
-
-// ===== 外部链接弹窗 =====
-document.addEventListener('DOMContentLoaded', () => {
-  const linksBtn = document.getElementById('linksBtn');
-  const linksOverlay = document.getElementById('linksOverlay');
-  const linksClose = document.getElementById('linksClose');
-  const linksBody = document.getElementById('linksBody');
-
-  if (linksBtn) {
-    linksBtn.addEventListener('click', () => {
-      renderLinks();
-      linksOverlay.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    });
-  }
-
-  if (linksClose) {
-    linksClose.addEventListener('click', () => {
-      linksOverlay.style.display = 'none';
-      document.body.style.overflow = '';
-    });
-  }
-
-  if (linksOverlay) {
-    linksOverlay.addEventListener('click', (e) => {
-      if (e.target === linksOverlay) {
-        linksOverlay.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    });
-  }
-
-  function renderLinks() {
-    if (!linksBody) return;
-    let html = '';
-    EXTERNAL_LINKS.forEach(group => {
-      html += '<div class="links-category">';
-      html += '<div class="links-category-title">' + escapeHtml(group.category) + '</div>';
-      html += '<ul class="links-list">';
-      group.items.forEach(link => {
-        html += '<li><a href="' + link.url + '" target="_blank" rel="noopener noreferrer">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>' +
-          escapeHtml(link.name) + '</a></li>';
-      });
-      html += '</ul></div>';
-    });
-    linksBody.innerHTML = html;
-  }
-});
