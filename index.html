@@ -85,7 +85,7 @@
         提交问题反馈
       </button>
       <div style="margin-top: 12px;">
-        <button class="links-btn" id="linksBtn">
+        <button class="links-btn" id="linksBtn" onclick="openLinksModal()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
             <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"></path>
             <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"></path>
@@ -140,7 +140,7 @@
       <p class="modal-desc">点击机构名称即可访问对应网站</p>
       <div class="links-body" id="linksBody"></div>
       <div class="modal-footer">
-        <button class="modal-close" id="linksClose">关闭</button>
+        <button class="modal-close" id="linksClose" onclick="closeLinksModal()">关闭</button>
       </div>
     </div>
   </div>
