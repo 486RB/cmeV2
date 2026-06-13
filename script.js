@@ -1,10 +1,10 @@
 
 const DEFAULT_DATA = {
   "name": "继续医学教育智能客服 Q&A 知识库",
-  "version": "2026-05-25",
-  "source_file": "继续医学教育智能客服_QA知识库_0525合并.xlsx",
-  "total": 131,
-  "generated_at": "2026-05-25T00:00:00",
+  "version": "2026-06-13",
+  "source_file": "继续医学教育智能客服_QA知识库（更新时间0613）_补充完善版.xlsx",
+  "total": 158,
+  "generated_at": "2026-06-13T00:00:00",
   "items": [
     {
       "id": "Q001",
@@ -26,9 +26,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q002",
@@ -50,9 +50,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q003",
@@ -74,9 +74,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q004",
@@ -97,9 +97,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q005",
@@ -120,9 +120,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q006",
@@ -143,9 +143,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q007",
@@ -166,9 +166,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q008",
@@ -189,9 +189,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q009",
@@ -213,9 +213,9 @@ const DEFAULT_DATA = {
       "answer_type": "评审型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q010",
@@ -236,9 +236,9 @@ const DEFAULT_DATA = {
       "answer_type": "评审型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q011",
@@ -259,9 +259,9 @@ const DEFAULT_DATA = {
       "answer_type": "评审型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q012",
@@ -283,9 +283,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q013",
@@ -306,9 +306,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q014",
@@ -329,9 +329,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q015",
@@ -351,9 +351,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q016",
@@ -374,9 +374,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q017",
@@ -397,9 +397,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q018",
@@ -420,9 +420,9 @@ const DEFAULT_DATA = {
       "answer_type": "评审型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q019",
@@ -443,9 +443,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q020",
@@ -465,9 +465,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q021",
@@ -487,9 +487,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q022",
@@ -510,9 +510,9 @@ const DEFAULT_DATA = {
       "answer_type": "评审型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q023",
@@ -535,9 +535,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q024",
@@ -558,9 +558,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q025",
@@ -581,9 +581,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q026",
@@ -605,9 +605,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q027",
@@ -629,9 +629,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q028",
@@ -652,9 +652,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q029",
@@ -675,9 +675,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q030",
@@ -698,9 +698,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q031",
@@ -721,9 +721,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q032",
@@ -744,9 +744,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q033",
@@ -767,9 +767,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q034",
@@ -790,9 +790,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q035",
@@ -814,9 +814,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q036",
@@ -838,9 +838,9 @@ const DEFAULT_DATA = {
       "answer_type": "提醒型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q037",
@@ -861,9 +861,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q038",
@@ -885,9 +885,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q039",
@@ -908,9 +908,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q040",
@@ -931,9 +931,9 @@ const DEFAULT_DATA = {
       "answer_type": "材料型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q041",
@@ -953,9 +953,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q042",
@@ -977,9 +977,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q043",
@@ -1001,9 +1001,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q044",
@@ -1025,9 +1025,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q045",
@@ -1048,9 +1048,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q046",
@@ -1071,9 +1071,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q047",
@@ -1094,9 +1094,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q048",
@@ -1117,9 +1117,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q049",
@@ -1140,9 +1140,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q050",
@@ -1163,9 +1163,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q051",
@@ -1186,9 +1186,9 @@ const DEFAULT_DATA = {
       "answer_type": "材料型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q052",
@@ -1209,9 +1209,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q053",
@@ -1232,9 +1232,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q054",
@@ -1255,9 +1255,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q055",
@@ -1278,9 +1278,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q056",
@@ -1301,9 +1301,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q057",
@@ -1323,9 +1323,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q058",
@@ -1346,9 +1346,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q059",
@@ -1368,9 +1368,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q060",
@@ -1391,9 +1391,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q061",
@@ -1414,9 +1414,9 @@ const DEFAULT_DATA = {
       "answer_type": "提醒型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q062",
@@ -1436,14 +1436,14 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q063",
       "question": "个人选修课？",
-      "answer": "个人选修课为人社部门继教达标重要指标，总共18个学时，由个人和所在单位协商认定学习内容，通过广东省专业技术人员管理平台进行管理。需要注意的是，卫生专业技术人员继续医学教育实行学分制，达标要求为25学分，学分换算单位为小时，并不包含个人选修课。以往为方便管理，个人选修课并入科教管理平台进行功能性管理，一定程度上造成卫生专业技术人员误解。2026年新科教管理平台上线后已经把个人选修课管理功能关闭，仅提供查询提醒功能。",
+      "answer": "个人选修课为人社部门继教达标重要指标，总共18个学时，由个人和所在单位协商认定学习内容，通过广东省专业技术人员管理平台进行管理。需要注意的是，卫生专业技术人员继续医学教育实行学分制，达标要求为25学分，学分换算单位为小时，并不包含个人选修课。以往为方便管理，个人选修课并入科教管理平台进行功能性管理，一定程度上造成卫生专业技术人员误解。",
       "category": "远程继续医学教育",
       "subcategory": "个人选修课",
       "roles": [
@@ -1460,9 +1460,9 @@ const DEFAULT_DATA = {
       "answer_type": "解释型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q064",
@@ -1482,9 +1482,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q065",
@@ -1505,9 +1505,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q066",
@@ -1528,9 +1528,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q067",
@@ -1551,9 +1551,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q068",
@@ -1573,9 +1573,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q069",
@@ -1596,9 +1596,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q070",
@@ -1619,9 +1619,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q071",
@@ -1641,9 +1641,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q072",
@@ -1663,9 +1663,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q073",
@@ -1686,9 +1686,9 @@ const DEFAULT_DATA = {
       "answer_type": "材料型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q074",
@@ -1708,9 +1708,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q075",
@@ -1730,9 +1730,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q076",
@@ -1753,9 +1753,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q077",
@@ -1776,9 +1776,9 @@ const DEFAULT_DATA = {
       "answer_type": "材料型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q078",
@@ -1799,9 +1799,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q079",
@@ -1822,9 +1822,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q080",
@@ -1844,9 +1844,9 @@ const DEFAULT_DATA = {
       "answer_type": "提醒型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q081",
@@ -1867,9 +1867,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q082",
@@ -1890,9 +1890,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q083",
@@ -1913,9 +1913,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q084",
@@ -1935,9 +1935,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q085",
@@ -1958,9 +1958,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q086",
@@ -1980,9 +1980,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q087",
@@ -2002,9 +2002,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q088",
@@ -2024,9 +2024,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q089",
@@ -2047,9 +2047,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q090",
@@ -2070,9 +2070,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q091",
@@ -2092,9 +2092,9 @@ const DEFAULT_DATA = {
       "answer_type": "解释型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q092",
@@ -2115,9 +2115,9 @@ const DEFAULT_DATA = {
       "answer_type": "监管型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q093",
@@ -2138,9 +2138,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q094",
@@ -2161,9 +2161,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q095",
@@ -2184,9 +2184,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q096",
@@ -2206,9 +2206,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q097",
@@ -2228,9 +2228,9 @@ const DEFAULT_DATA = {
       "answer_type": "流程型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q098",
@@ -2250,9 +2250,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q099",
@@ -2273,9 +2273,9 @@ const DEFAULT_DATA = {
       "answer_type": "解释型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q100",
@@ -2296,9 +2296,9 @@ const DEFAULT_DATA = {
       "answer_type": "解释型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q101",
@@ -2318,9 +2318,9 @@ const DEFAULT_DATA = {
       "answer_type": "解释型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-22",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q102",
@@ -2343,9 +2343,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q103",
@@ -2367,9 +2367,9 @@ const DEFAULT_DATA = {
       "answer_type": "解释型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q104",
@@ -2391,9 +2391,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q105",
@@ -2414,9 +2414,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q106",
@@ -2438,9 +2438,9 @@ const DEFAULT_DATA = {
       "answer_type": "解释型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q107",
@@ -2461,9 +2461,9 @@ const DEFAULT_DATA = {
       "answer_type": "系统操作型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q108",
@@ -2484,9 +2484,9 @@ const DEFAULT_DATA = {
       "answer_type": "程序型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q109",
@@ -2507,9 +2507,9 @@ const DEFAULT_DATA = {
       "answer_type": "政策型",
       "is_public": "是",
       "status": "已发布",
-      "updated_at": "2026-05-24",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q110",
@@ -2528,10 +2528,10 @@ const DEFAULT_DATA = {
       "policy_basis": "根据广东省继续医学教育管理有关要求",
       "answer_type": "解释型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q111",
@@ -2552,10 +2552,10 @@ const DEFAULT_DATA = {
       "policy_basis": "国家有关规定\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q112",
@@ -2577,10 +2577,10 @@ const DEFAULT_DATA = {
       "policy_basis": "国家有关规定\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q113",
@@ -2600,10 +2600,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《关于印发继续医学教育学分管理办法（试行）的通知》\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q114",
@@ -2623,10 +2623,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《关于印发继续医学教育学分管理办法（试行）的通知》\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q115",
@@ -2646,10 +2646,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q116",
@@ -2670,10 +2670,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》\n来源：《继续医学教育新政常见问题》",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q117",
@@ -2693,10 +2693,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q118",
@@ -2716,10 +2716,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q119",
@@ -2739,10 +2739,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q120",
@@ -2762,10 +2762,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q121",
@@ -2785,10 +2785,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q122",
@@ -2808,10 +2808,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q123",
@@ -2831,10 +2831,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q124",
@@ -2855,10 +2855,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q125",
@@ -2879,10 +2879,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q126",
@@ -2902,10 +2902,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q127",
@@ -2925,10 +2925,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q128",
@@ -2948,10 +2948,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q129",
@@ -2972,10 +2972,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q130",
@@ -2996,10 +2996,10 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
-      "remark": ""
+      "remark": "1"
     },
     {
       "id": "Q131",
@@ -3020,8 +3020,712 @@ const DEFAULT_DATA = {
       "policy_basis": "《广东省继续医学教育学分管理工作指引》-新政解读",
       "answer_type": "政策型",
       "is_public": "是",
-      "status": "已整理",
-      "updated_at": "2026-05-25",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": "1"
+    },
+    {
+      "id": "Q132",
+      "question": "如何购买学分？",
+      "answer": "首先，你购买的是知识和服务，并不能够直接购买学分。继续医学教育项目允许收费，收费标准以各地区相关管理部门定价为准，学员可以根据自身专业需求选择不同机构的收费学习项目。继续医学教育项目获得学分的前提是完成相应考勤及考核要求。如发现违规买卖学分情况，只收费不培训或者收费标准与培训内容不符，可以通过12345政务投诉。",
+      "category": "学分管理",
+      "subcategory": "学分授予",
+      "roles": [
+        "卫生专业技术人员"
+      ],
+      "keywords": [
+        "购买学分",
+        "收费标准",
+        "买卖学分",
+        "学分"
+      ],
+      "policy_basis": "《广东省继续医学教育学分管理工作指引》",
+      "answer_type": "提醒型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q133",
+      "question": "获取远程教育学分的途径？",
+      "answer": "首先，可以参加政府或行政部门组织的远程继续医学教育项目培训。其次，可以参加国家认证的12家远程教育机构的远程在项目。自2025年起，逐步放开远程教育机构管理，凡由国家或省卫生健康行政部门认可的机构，经审批立项的远程教育项目，可在全国范围内开展。具体项目可通过全国继续医学教育公共服务平台查询。但是要注意，无论通过何种形式获得远程教育学分，都必须完成相应的考勤考核。",
+      "category": "学分管理",
+      "subcategory": "学分授予",
+      "roles": [
+        "卫生专业技术人员"
+      ],
+      "keywords": [
+        "远程教育",
+        "学分",
+        "学分"
+      ],
+      "policy_basis": "《广东省继续医学教育学分管理工作指引》",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": "补充答案类型；远程教育学分政策如有更新需同步维护。"
+    },
+    {
+      "id": "Q134",
+      "question": "国家的，省里的，市里的，用人单位的那么多的文件，我应该听谁的？",
+      "answer": "从政策层面上，国家＞省＞市＞用人单位。从管理层面上，实行属地化管理，只要不违反上级公布的管理规定，用人单位＞市＞省＞国家。因为每一层级经济文化行政水平不同，在管理细则上都有一定差异，有问题应当先咨询用人单位管理部门，解决不了的再逐级上报。",
+      "category": "政策依据",
+      "subcategory": "解释口径",
+      "roles": [
+        "通用"
+      ],
+      "keywords": [
+        "政策层级",
+        "属地管理",
+        "用人单位管理",
+        "文件适用",
+        "逐级咨询"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "解释型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": "根据问题内容补充分类信息；具体口径需结合正式文件和属地管理要求动态更新。"
+    },
+    {
+      "id": "Q135",
+      "question": "关于系统操作繁琐的问题",
+      "answer": "目前受限于不同管理系统间数据信息孤岛，未能建立有效连接，系统的全流程管理仍处于过渡和建设阶段，功能和流程上有问题和建议的可以进行反馈，技术部门将会尽快修复，同时合适的建议将会纳入二期建设需求。",
+      "category": "系统优化建议",
+      "subcategory": "系统操作优化",
+      "roles": [
+        "医疗卫生机构管理员",
+        "学员个人",
+        "项目负责人"
+      ],
+      "keywords": [
+        "系统操作",
+        "系统繁琐",
+        "数据孤岛",
+        "功能优化",
+        "二期建设",
+        "技术反馈"
+      ],
+      "policy_basis": "不适用",
+      "answer_type": "提醒型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": "根据问题内容补充分类信息；属于系统建设和优化建议类问题。"
+    },
+    {
+      "id": "Q136",
+      "question": "举办前登记实际举办地对项目审批及管理流程的影响？",
+      "answer": "根据属地化管理原则，原则上继教推荐项目由实际举办地卫生健康管理部门进行举办前登记及执行汇报审查管理。但是还有特殊情况，如委（省）直属单位项目如在广州地区举办，由省继教委直接管理；高等医学院校对下属附属医院立项项目登记和执行情况进行管理。具体审批和管理流程应在项目登记时在继教管理系统进行跟踪管理。",
+      "category": "项目举办管理",
+      "subcategory": "举办前登记",
+      "roles": [
+        "项目负责人",
+        "医疗卫生机构管理员",
+        "地市管理部门"
+      ],
+      "keywords": [
+        "举办前登记",
+        "实际举办地",
+        "属地管理",
+        "审批流程",
+        "执行汇报",
+        "省直属单位",
+        "高等医学院校"
+      ],
+      "policy_basis": "《广东省继续医学教育项目管理相关规定》",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": "根据问题内容补充分类信息；涉及实际举办地和归口管理流程。"
+    },
+    {
+      "id": "Q137",
+      "question": "生专业技术人员每年学分不低于25分，其中包括5分公需课（30学时），想请问，剩余的20学分中有无对专业课、选修课的学时要求呢？",
+      "answer": "依据《广东省继续医学教育学分管理工作指引》和有关规定，广东省卫生专业技术人员每年所获得学分累计不低于25学分。继续医学教育活动分为公需科目和专业科目，其中公需科目按省人力资源社会保障厅现行要求，每年完成30学时的公需科目学习，考核合格者可计为5学分；专科科目学分可从工作指引中规定的其他途径获取，每年不低于20学分。个人选修课按照省人力资源社会保障厅现行要求执行，每年必须修满18学时，但不计入继续医学教育达标内容。",
+      "category": "学分管理",
+      "subcategory": "年度学分要求",
+      "roles": [
+        "卫生专业技术人员",
+        "医疗卫生机构管理员",
+        "学员个人"
+      ],
+      "keywords": [
+        "25学分",
+        "公需课",
+        "专业科目",
+        "选修课",
+        "18学时",
+        "30学时",
+        "年度学分要求"
+      ],
+      "policy_basis": "《广东省继续医学教育学分管理工作指引》",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": "根据问题内容补充分类信息；年度学分口径需随最新政策同步更新。"
+    },
+    {
+      "id": "Q138",
+      "question": "现场监管评估中常见的问题",
+      "answer": "套会合办，不同会议或者项目在同一时段同一地点举办；考勤考核管理不严，没有签入签出和中途考勤，考核方式模糊不能体现学习成果；经费收支管理不清，没有经费预算结算管理，没有会前签订协议明确权责范围，主承办单位收支管理责任不清；缺乏跟班管理，应急预案；课程、教师和授课时长变动超30%或与举办前登记信息不符。更多可能存在问题应参照监管评估指标强化管理。",
+      "category": "整改监管/飞行检查",
+      "subcategory": "监管评估",
+      "roles": [
+        "医疗卫生机构管理员",
+        "项目负责人",
+        "飞行检查人员"
+      ],
+      "keywords": [
+        "现场监管评估",
+        "套会合办",
+        "考勤考核",
+        "经费管理",
+        "跟班管理",
+        "应急预案",
+        "登记不一致",
+        "变更超30%"
+      ],
+      "policy_basis": "《继续医学教育项目监管评估指标》",
+      "answer_type": "监管型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": "根据问题内容补充分类信息；可作为监管评估风险提示类问答。"
+    },
+    {
+      "id": "Q139",
+      "question": "院内学分录入后多久可以审核完成？",
+      "answer": "一般要求不超过15个工作日，根据各地各单位具体管理要求而定。",
+      "category": "学分管理",
+      "subcategory": "学分审核",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "院内学分",
+        "学分录入",
+        "审核多久",
+        "学分审核",
+        "到账"
+      ],
+      "policy_basis": "单位管理制度",
+      "answer_type": "简答型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q140",
+      "question": "2026年继续医学教育年度学分要求是什么？是否仍区分选修课和专业课？",
+      "answer": "继续医学教育实现学分制，达标要求25学分，分专业科目和公需科目。选修课18学时按人社厅要求执行。",
+      "category": "学分管理",
+      "subcategory": "年度学分要求",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "2026年",
+        "年度学分",
+        "25学分",
+        "选修课",
+        "专业课",
+        "初级",
+        "中级",
+        "高级"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q141",
+      "question": "公需课完成后是否自动获得学分？学分什么时候到账？",
+      "answer": "公需课完成学习并考核合格后自动核算为5学分计入个人档案。",
+      "category": "学分管理",
+      "subcategory": "公需课学分",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "公需课",
+        "5学分",
+        "公需学分",
+        "到账",
+        "同步",
+        "学完就有"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "简答型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q142",
+      "question": "选修课是否必须参加？能否通过远程线上课程完成？",
+      "answer": "个人选修课按人社部门要求，由个人与单位协商学习内容，一般为与专业相关内容，学习形式与用人单位协商，经单位审核同意后即认定有效，远程继教项目并无相关规定不可作为选修课内容，但是要注意学习结果必须有效且可追溯。",
+      "category": "远程继续医学教育",
+      "subcategory": "选修课学习",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "选修课",
+        "18学时",
+        "远程线上课",
+        "线上学习",
+        "购买课程",
+        "考核"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q143",
+      "question": "有计划自学医学相关知识需要哪些佐证材料？",
+      "answer": "有计划自学需要在每年第一季制定学习计划和达成目标，由单位审核并监督，目标达成情况在第四季度由单位管理部门对佐证材料进行认证审核。需要的是计划目标和与计划目标达成情况的佐证材料。",
+      "category": "学分管理",
+      "subcategory": "有计划自学佐证",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "有计划自学",
+        "自学医学知识",
+        "学习计划",
+        "盖章",
+        "佐证材料"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "材料型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q144",
+      "question": "参加医学相关实践活动申请学分需要哪些佐证材料？",
+      "answer": "相关证书、影像资料、培训结果文件等。",
+      "category": "学分管理",
+      "subcategory": "实践活动佐证",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "医学实践活动",
+        "集中培训",
+        "回执",
+        "签到表",
+        "学分证明",
+        "佐证材料"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "材料型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q145",
+      "question": "参与授课、带教、命题、考官、科普视频、循证医学活动如何申请学分？",
+      "answer": "需提前确定并在系统中等级为授课教师",
+      "category": "学分管理",
+      "subcategory": "自学与实践活动佐证",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "授课",
+        "带教",
+        "命题",
+        "考官",
+        "科普视频",
+        "健康宣教",
+        "小组学习",
+        "循证医学",
+        "满分3分"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "材料型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q146",
+      "question": "外出培训没有刷卡或学分证明，能否通过回执或签到表申请学分？",
+      "answer": "不可以，广东省内学分暂时以刷卡为准；外出参加国家级继教项目需要凭国家级CME系统下载的学分证明在项目结束后10个工作日内通过单位管理部门录入；经单位同意的，也可以作为选修课录入。",
+      "category": "学分管理",
+      "subcategory": "外出学习学分录入",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "外出培训",
+        "集中培训",
+        "卫健委",
+        "疾控中心",
+        "回执",
+        "签到表",
+        "无学分证明",
+        "无刷卡"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q147",
+      "question": "外出学习取得学分证明后，回到院内如何录入？",
+      "answer": "专业课学分需要用人单位审核录入；选修课可由用人单位或个人录入，经审核认定即可。",
+      "category": "学分管理",
+      "subcategory": "外出学习学分录入",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "外出学习",
+        "外出培训",
+        "学分证明",
+        "回来录入",
+        "个人学分",
+        "向导录入"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "流程型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q148",
+      "question": "进修学习、转岗培训、岗位培训如何认定继续医学教育学分？",
+      "answer": "凭相关结业或考核合格证明由用人单位审核录入，并须提供学习时长的证明。",
+      "category": "学分管理",
+      "subcategory": "进修与岗位培训",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "进修",
+        "3个月",
+        "岗位培训",
+        "转岗培训",
+        "20学分",
+        "25学分",
+        "佐证材料"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q149",
+      "question": "院内继续医学教育实践活动是否必须设置试卷？",
+      "answer": "有组织的继续医学教育活动管理参照继续医学教育项目，应对实践活动进行考勤和考核。",
+      "category": "项目举办管理",
+      "subcategory": "考核要求",
+      "roles": [
+        "医疗机构管理员"
+      ],
+      "keywords": [
+        "院内实践活动",
+        "试卷",
+        "维护试卷",
+        "考核",
+        "答题"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "简答型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q150",
+      "question": "院内活动刷卡、签到、答题是否必须全部匹配后才能授分？",
+      "answer": "是，学习全过程应该完整可追溯。",
+      "category": "学分管理",
+      "subcategory": "授分条件",
+      "roles": [
+        "医疗机构管理员",
+        "学员"
+      ],
+      "keywords": [
+        "刷卡",
+        "签到",
+        "签退",
+        "答题",
+        "考核",
+        "三者匹配",
+        "授分条件",
+        "80%"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q151",
+      "question": "基层医疗机构没有考勤机，如何开展院内活动考勤和授分？",
+      "answer": "目前我省正在探索推进二维码考勤，条件有限的医疗卫生机构，在建立完善的继续医学教育管理制度，并了解软件开发期使用风险后，可以申请试点使用二维码考勤APP。",
+      "category": "学分管理",
+      "subcategory": "基层授分方式",
+      "roles": [
+        "基层医疗机构管理员"
+      ],
+      "keywords": [
+        "基层医疗机构",
+        "基层卫生院",
+        "考勤机",
+        "二维码",
+        "签到",
+        "授分"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "流程型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q152",
+      "question": "二维码签到签退成功但有效学时为0，如何处理？",
+      "answer": "要注意系统关于有效签到签退的相关时效说明，不得随机设置或变更考勤时间，只有在有效期内刷卡才计入有效学时。如出现技术故障，应第一时间联系技术部门，并凭完整的存档材料进行申诉，材料包括但不限于活动申请审批流程、授课课件、视频（照片）、签到签退和考核记录、相关情况说明等。",
+      "category": "系统操作",
+      "subcategory": "有效学时异常",
+      "roles": [
+        "医疗机构管理员"
+      ],
+      "keywords": [
+        "二维码",
+        "签到成功",
+        "签退成功",
+        "有效学时0",
+        "参会时长0",
+        "无法授分"
+      ],
+      "policy_basis": "待补充系统处理依据",
+      "answer_type": "系统操作型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q153",
+      "question": "院内实践活动参会时长达到80%但系统显示为0，如何处理？",
+      "answer": "如出现技术故障，应第一时间联系技术部门，并凭完整的存档材料进行申诉，材料包括但不限于活动申请审批流程、授课课件、视频（照片）、签到签退和考核记录、相关情况说明等。",
+      "category": "系统操作",
+      "subcategory": "授分异常",
+      "roles": [
+        "医疗机构管理员"
+      ],
+      "keywords": [
+        "参会时长",
+        "80%",
+        "系统显示0",
+        "培训总时长",
+        "签到签退",
+        "无法提交授分"
+      ],
+      "policy_basis": "待补充系统处理依据",
+      "answer_type": "系统操作型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q154",
+      "question": "院内学术活动没有教材，项目反馈中的教材使用情况如何填写？",
+      "answer": "教材包括单不限于纸质书籍、ppt、视频教程等，字数可根据教学时长进行计算，正常语速约200-250字每分钟。",
+      "category": "项目举办管理",
+      "subcategory": "执行反馈",
+      "roles": [
+        "医疗机构管理员"
+      ],
+      "keywords": [
+        "教材",
+        "PPT",
+        "课件",
+        "执行反馈",
+        "教材使用情况",
+        "院内学术活动"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "流程型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q155",
+      "question": "省内异地举办项目应由哪里审核？",
+      "answer": "省级项目原则上不存在异地举办，但是受举办地卫健部门的监管，举办前登记材料由举办地卫健部门进行审查，但是由于归口单位的复杂性和考虑项目数量地区分布问题，部分单位和地区有独立管理要求。具体可在审批步骤查看审批进度。",
+      "category": "项目举办管理",
+      "subcategory": "异地举办审核",
+      "roles": [
+        "主办单位",
+        "地市管理部门"
+      ],
+      "keywords": [
+        "省内异地",
+        "备案",
+        "举办前登记",
+        "主办单位所在地",
+        "举办地",
+        "审核流程"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q156",
+      "question": "项目举办登记和执行反馈资料重复，是否可以优化？",
+      "answer": "项目申报、举办前登记、执行应保持一致，为保证过程留痕的完整性，确保可监管和追溯，现阶段不宜进行删减。",
+      "category": "系统优化建议",
+      "subcategory": "执行反馈优化",
+      "roles": [
+        "医疗机构管理员",
+        "项目负责人"
+      ],
+      "keywords": [
+        "举办登记",
+        "执行反馈",
+        "资料重复",
+        "考题",
+        "材料复用",
+        "上传优化"
+      ],
+      "policy_basis": "不适用",
+      "answer_type": "提醒型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q157",
+      "question": "社会团体申请的院内学分能否向会员或外单位人员授分？",
+      "answer": "原则上不能，院内实践活动学分授予仅限于本单位职工，基层卫生机构人员参会不受这个限制。",
+      "category": "学分管理",
+      "subcategory": "社会团体授分",
+      "roles": [
+        "社会团体",
+        "医疗机构管理员",
+        "参会人员"
+      ],
+      "keywords": [
+        "社会团体",
+        "会员",
+        "外单位人员",
+        "院内学分",
+        "参会人员",
+        "授分范围"
+      ],
+      "policy_basis": "待补充政策依据",
+      "answer_type": "政策型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
+      "query_count": 0,
+      "remark": ""
+    },
+    {
+      "id": "Q158",
+      "question": "继续医学教育系统是否需要新版操作指南或实操指引？",
+      "answer": "操作指引和操作培训视频正在制作和完善中，大概7月会下发全省各医疗卫生机构，由于系统功能在不断完善中，如出现操作问题，建议优先咨询技术支持。",
+      "category": "系统优化建议",
+      "subcategory": "操作指南优化",
+      "roles": [
+        "管理部门",
+        "医疗机构管理员"
+      ],
+      "keywords": [
+        "操作指南",
+        "实操指引",
+        "系统操作",
+        "办会经验",
+        "线下操作",
+        "注意事项"
+      ],
+      "policy_basis": "不适用",
+      "answer_type": "提醒型",
+      "is_public": "是",
+      "status": "已发布",
+      "updated_at": "2026-06-13",
       "query_count": 0,
       "remark": ""
     }
